@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.db
+uploads/datasets/*
+!uploads/datasets/.gitkeep
+models/saved_models/*
+!models/saved_models/.gitkeep
+static/charts/*.png
+reports/*.pdf
+.DS_Store
+.pytest_cache/

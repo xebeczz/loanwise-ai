@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block title %}Model Performance - LoanWise AI{% endblock %}
+{% block content %}
+<div class="flex items-start justify-between gap-4 mb-6">
+  <div>
+    <h1 class="font-display font-bold text-3xl text-navy">Model Performance</h1>
+    <p class="text-muted mt-1">All metrics are calculated from the actual test set of your uploaded dataset.</p>
+  </div>
+  {% if dataset %}<a href="{{ url_for('reports.performance_pdf') }}" class="shrink-0 px-5 py-2.5 rounded-xl bg-navy text-white text-sm font-semibold hover:bg-[#0b1c32]">Download Performance Report (PDF)</a>{% endif %}
+</div>
+
+{% if not dataset or not metrics %}
+<div class="bg-white rounded-2xl border border-slate-200 p-10 text-center">
+  <span class="material-symbols-outlined text-5xl text-royal">query_stats</span>
+  <h2 class="font-display font-bold text-2xl text-navy mt-4">No trained models yet</h2>
+  <p class="text-muted mt-2 max-w-md mx-auto">Upload your loan dataset to begin analysing loan applications.</p>
+  <a href="{{ url_for('dataset.dataset_page') }}" class="inline-block mt-6 px-6 py-3 rounded-xl bg-navy text-white font-semibold">Go to Dataset Management</a>
+</div>
+{% else %}
+<p class="text-sm text-muted mb-6">Dataset: <b>{{ dataset.original_filename }}</b> &middot; Train {{ "{:,}".format(dataset.train_count) }} / Test {{ "{:,}".format(dataset.test_count) }} &middot; Best model: <b class="text-teal-600">{{ best_model }}</b></p>
+
+<div class="grid grid-cols-2 lg:grid-cols-5 gap-4 mb-6">
+  {% for name, m in metrics.items() %}
+  <div class="bg-white rounded-2xl border p-5 {% if name == best_model %}ring-2 ring-teal2{% endif %}">
+    <p class="text-xs font-semibold uppercase text-muted">{{ name }}</p>
+    <p class="font-display font-extrabold text-3xl text-navy mt-2">{{ "%.2f"|format(m.accuracy * 100) }}%</p>
+    <p class="text-xs text-muted">Accuracy &middot; F1 {{ "%.2f"|format(m.f1 * 100) }}%</p>
+    {% if name == best_model %}<span class="inline-block mt-2 px-2 py-0.5 rounded-full bg-teal-100 text-teal-700 text-xs font-semibold">Best Model</span>{% endif %}
+  </div>
+  {% endfor %}
+</div>
+
+<div class="bg-white rounded-2xl border border-slate-200 p-6 mb-6">
+  <h2 class="font-display font-bold text-lg text-navy mb-4">Comparison Table</h2>
+  <table class="w-full text-sm">
+    <thead><tr class="text-left text-muted border-b"><th class="py-2 pr-3">Model</th><th class="py-2 pr-3">Accuracy</th><th class="py-2 pr-3">Precision</th><th class="py-2 pr-3">Recall</th><th class="py-2 pr-3">F1-Score</th></tr></thead>
+    <tbody>
+    {% for name, m in metrics.items() %}
+    <tr class="border-b last:border-0 {% if name == best_model %}bg-teal-50/50{% endif %}">
+      <td class="py-2.5 pr-3 font-semibold">{{ name }}{% if name == best_model %} <span class="text-teal-600 text-xs">★ Best</span>{% endif %}</td>
+      <td class="py-2.5 pr-3">{{ "%.2f"|format(m.accuracy * 100) }}%</td>
+      <td class="py-2.5 pr-3">{{ "%.2f"|format(m.precision * 100) }}%</td>
+      <td class="py-2.5 pr-3">{{ "%.2f"|format(m.recall * 100) }}%</td>
+      <td class="py-2.5 pr-3">{{ "%.2f"|format(m.f1 * 100) }}%</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
+  <div class="bg-white rounded-2xl border p-6"><h3 class="font-display font-bold text-navy mb-3">Model Accuracy Comparison</h3><img src="{{ url_for('static', filename='charts/accuracy.png') }}" alt="Accuracy chart" class="w-full"/></div>
+  <div class="bg-white rounded-2xl border p-6"><h3 class="font-display font-bold text-navy mb-3">Precision Comparison</h3><img src="{{ url_for('static', filename='charts/precision.png') }}" alt="Precision chart" class="w-full"/></div>
+  <div class="bg-white rounded-2xl border p-6"><h3 class="font-display font-bold text-navy mb-3">Recall Comparison</h3><img src="{{ url_for('static', filename='charts/recall.png') }}" alt="Recall chart" class="w-full"/></div>
+  <div class="bg-white rounded-2xl border p-6"><h3 class="font-display font-bold text-navy mb-3">F1-Score Comparison</h3><img src="{{ url_for('static', filename='charts/f1.png') }}" alt="F1 chart" class="w-full"/></div>
+</div>
+
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+  <div class="bg-white rounded-2xl border p-6"><h3 class="font-display font-bold text-navy mb-3">Best Model Confusion Matrix</h3><img src="{{ url_for('static', filename='charts/confusion_matrix.png') }}" alt="Confusion matrix" class="w-full max-w-md mx-auto"/></div>
+  <div class="bg-white rounded-2xl border p-6">
+    <h3 class="font-display font-bold text-navy mb-3">Feature Importance (Random Forest)</h3>
+    <img src="{{ url_for('static', filename='charts/feature_importance.png') }}" alt="Feature importance" class="w-full mb-4"/>
+    {% if importances %}
+    <div class="space-y-2">
+      {% for name, val in importances.items() %}
+      <div class="flex justify-between text-sm"><span>{{ name }}</span><b>{{ "%.3f"|format(val) }}</b></div>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endif %}
+{% endblock %}

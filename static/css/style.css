@@ -1,0 +1,5 @@
+/* LoanWise AI - small extras on top of the Stitch Tailwind design. */
+body { font-family: 'Inter', sans-serif; }
+h1, h2, h3, .font-display { font-family: 'Manrope', sans-serif; }
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }

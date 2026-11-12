@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}Prediction History - LoanWise AI{% endblock %}
+{% block content %}
+<h1 class="font-display font-bold text-3xl text-navy">Prediction History</h1>
+<p class="text-muted mt-1 mb-6">Every prediction is stored in the database and stays here even after you replace the dataset or restart the app.</p>
+
+<form method="get" class="bg-white rounded-2xl border border-slate-200 p-4 mb-6 flex flex-wrap gap-3 items-end">
+  <div><label class="block text-xs font-semibold text-muted mb-1">Search (ID or CIBIL)</label>
+    <input name="q" value="{{ search }}" placeholder="e.g. 434" class="px-3 py-2 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-royal"/></div>
+  <div><label class="block text-xs font-semibold text-muted mb-1">Decision</label>
+    <select name="decision" class="px-3 py-2 rounded-xl border border-slate-200 text-sm bg-white">
+      <option value="">All decisions</option>
+      {% for d in ['APPROVED','REJECTED','FURTHER REVIEW'] %}<option value="{{ d }}" {% if decision == d %}selected{% endif %}>{{ d }}</option>{% endfor %}
+    </select></div>
+  <div><label class="block text-xs font-semibold text-muted mb-1">Sort by date</label>
+    <select name="sort" class="px-3 py-2 rounded-xl border border-slate-200 text-sm bg-white">
+      <option value="newest" {% if sort == 'newest' %}selected{% endif %}>Newest first</option>
+      <option value="oldest" {% if sort == 'oldest' %}selected{% endif %}>Oldest first</option>
+    </select></div>
+  <button class="px-5 py-2 rounded-xl bg-navy text-white text-sm font-semibold">Apply</button>
+  <a href="{{ url_for('prediction.history') }}" class="px-5 py-2 rounded-xl border text-sm font-semibold">Clear</a>
+</form>
+
+<div class="bg-white rounded-2xl border border-slate-200 p-6">
+{% if records %}
+<div class="overflow-x-auto">
+<table class="w-full text-sm">
+  <thead><tr class="text-left text-muted border-b">
+    <th class="py-2 pr-3">Prediction ID</th><th class="py-2 pr-3">Applicant Income</th><th class="py-2 pr-3">Loan Amount</th><th class="py-2 pr-3">CIBIL Score</th><th class="py-2 pr-3">Approval Votes</th><th class="py-2 pr-3">Rejection Votes</th><th class="py-2 pr-3">Final Decision</th><th class="py-2 pr-3">Prediction Date</th><th class="py-2">Actions</th>
+  </tr></thead>
+  <tbody>
+  {% for p in records %}
+  <tr class="border-b last:border-0">
+    <td class="py-2.5 pr-3 font-semibold">#{{ p.id }}</td>
+    <td class="py-2.5 pr-3">Rs. {{ "{:,.0f}".format(p.income_annum) }}</td>
+    <td class="py-2.5 pr-3">Rs. {{ "{:,.0f}".format(p.loan_amount) }}</td>
+    <td class="py-2.5 pr-3">{{ p.cibil_score }}</td>
+    <td class="py-2.5 pr-3">{{ p.approval_votes }}</td>
+    <td class="py-2.5 pr-3">{{ p.rejection_votes }}</td>
+    <td class="py-2.5 pr-3"><span class="px-2.5 py-1 rounded-full text-xs font-semibold {% if p.final_decision == 'APPROVED' %}bg-green-100 text-green-700{% elif p.final_decision == 'REJECTED' %}bg-red-100 text-red-700{% else %}bg-amber-100 text-amber-700{% endif %}">{{ p.final_decision }}</span></td>
+    <td class="py-2.5 pr-3">{{ p.created_at.strftime('%d %b %Y, %I:%M %p') }}</td>
+    <td class="py-2.5 whitespace-nowrap">
+      <a href="{{ url_for('prediction.result', prediction_id=p.id) }}" class="text-royal font-semibold hover:underline mr-3">View</a>
+      <a href="{{ url_for('reports.prediction_pdf', prediction_id=p.id) }}" class="text-royal font-semibold hover:underline mr-3">PDF</a>
+      <form method="post" action="{{ url_for('prediction.delete_prediction', prediction_id=p.id) }}" class="inline" onsubmit="return confirm('Delete prediction #{{ p.id }}? This cannot be undone.');">
+        <button type="submit" class="text-red-600 font-semibold hover:underline">Delete</button>
+      </form>
+    </td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+{% else %}
+<p class="text-muted text-sm">No predictions yet{% if search or decision %} matching these filters{% endif %}. <a href="{{ url_for('prediction.new_prediction') }}" class="text-royal font-semibold hover:underline">Make a prediction</a>.</p>
+{% endif %}
+</div>
+{% endblock %}

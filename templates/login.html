@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}Sign In - LoanWise AI{% endblock %}
+{% block auth_content %}
+<div class="w-full min-h-screen grid grid-cols-1 lg:grid-cols-12">
+  <!-- Left panel: navy, as in the Stitch login design -->
+  <div class="relative overflow-hidden lg:col-span-6 bg-navy text-white flex flex-col justify-between p-8 sm:p-12">
+    <div class="absolute inset-0 pointer-events-none opacity-10 bg-[linear-gradient(to_right,#76f8e3_1px,transparent_1px),linear-gradient(to_bottom,#76f8e3_1px,transparent_1px)] bg-[size:48px_48px]"></div>
+    <div class="relative z-10 flex items-center gap-4">
+      <div class="w-10 h-10 rounded-xl bg-teal2 flex items-center justify-center font-display font-extrabold text-xl">L</div>
+      <span class="text-xs tracking-widest uppercase text-[#76f8e3] font-semibold">Intelligent Decisions. Smarter Lending.</span>
+    </div>
+    <div class="relative z-10 space-y-4 max-w-xl">
+      <span class="text-xs uppercase tracking-widest text-[#b7c7e4]">Financial Risk Intelligence</span>
+      <h1 class="font-display font-extrabold text-4xl leading-tight">Machine Learning-Based Loan Approval Decision Support</h1>
+      <p class="text-[#b7c7e4]">Analyse historical loan data with five machine learning models, compare their performance, and predict whether a new applicant's loan should be approved - with a clear, explainable vote.</p>
+      <div class="flex gap-6 pt-2">
+        <div><p class="font-display font-bold text-2xl text-teal2">5</p><p class="text-xs text-[#b7c7e4]">ML Models</p></div>
+        <div><p class="font-display font-bold text-2xl text-teal2">70 / 30</p><p class="text-xs text-[#b7c7e4]">Train / Test Split</p></div>
+        <div><p class="font-display font-bold text-2xl text-teal2">5-Vote</p><p class="text-xs text-[#b7c7e4]">Decision Rule</p></div>
+      </div>
+    </div>
+    <p class="relative z-10 text-xs text-[#7c8ba6]">LoanWise AI - College Mini Project - Educational use only</p>
+  </div>
+  <!-- Right panel: sign-in form -->
+  <div class="lg:col-span-6 flex items-center justify-center p-8 bg-white">
+    <div class="w-full max-w-md">
+      <h2 class="font-display font-bold text-3xl text-navy">Welcome back</h2>
+      <p class="text-muted mt-1 mb-8">Sign in to your LoanWise AI account.</p>
+      <form method="post" action="{{ url_for('auth.login') }}" class="space-y-5">
+        <div>
+          <label class="block text-sm font-semibold mb-1.5" for="email">Email address</label>
+          <input id="email" name="email" type="email" required placeholder="you@example.com" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-royal"/>
+        </div>
+        <div>
+          <label class="block text-sm font-semibold mb-1.5" for="password">Password</label>
+          <div class="relative">
+            <input id="password" name="password" type="password" required placeholder="Enter your password" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-royal pr-12"/>
+            <button type="button" onclick="togglePassword('password', this)" class="absolute right-3 top-1/2 -translate-y-1/2 text-muted hover:text-navy"><span class="material-symbols-outlined">visibility</span></button>
+          </div>
+        </div>
+        <div class="flex items-center justify-between text-sm">
+          <label class="flex items-center gap-2 text-slate-600"><input type="checkbox" name="remember" class="accent-[#315EAB]"/> Remember me</label>
+          <a href="{{ url_for('auth.forgot') }}" class="text-royal font-semibold hover:underline">Forgot password?</a>
+        </div>
+        <button type="submit" class="w-full py-3 rounded-xl bg-navy text-white font-semibold hover:bg-[#0b1c32] transition-colors">Sign In</button>
+      </form>
+      <p class="text-center text-sm text-muted mt-6">Don't have an account? <a href="{{ url_for('auth.register') }}" class="text-royal font-semibold hover:underline">Create an account</a></p>
+      <div class="mt-8 rounded-xl bg-pagebg border border-slate-200 p-4 text-sm text-slate-600">
+        <p class="font-semibold text-navy mb-1">First time here?</p>
+        <p>Create an account, then go to <b>Dataset Management</b> and upload your loan CSV manually. Models train only when you click <b>Process Dataset &amp; Train Models</b>.</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

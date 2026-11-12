@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>{% block title %}LoanWise AI{% endblock %}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = { theme: { extend: {
+  colors: { navy: '#14243A', royal: '#315EAB', teal2: '#24B8A5', muted: '#718096', pagebg: '#F4F7FB', surface: '#E4EDFC' },
+  fontFamily: { display: ['Manrope','sans-serif'], body: ['Inter','sans-serif'] }
+}}};
+</script>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+</head>
+<body class="bg-pagebg font-body text-[#0d1c2e] antialiased">
+{% if user %}
+<div class="flex min-h-screen">
+  <!-- Sidebar - navy #14243A, as in the Stitch design -->
+  <aside class="fixed left-0 top-0 h-screen w-64 bg-navy z-50 flex flex-col justify-between">
+    <div>
+      <div class="h-16 px-6 flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-teal2 flex items-center justify-center font-display font-extrabold text-white text-lg">L</div>
+        <div class="flex flex-col">
+          <span class="font-display font-bold text-white leading-tight">LoanWise AI</span>
+          <span class="text-[11px] uppercase tracking-wider text-[#7c8ba6]">Risk Engine v3.2</span>
+        </div>
+      </div>
+      <nav class="px-3 py-4 flex flex-col gap-1">
+        {% set nav = [
+          ('dashboard.dashboard','grid_view','Dashboard'),
+          ('dataset.dataset_page','database','Dataset Management'),
+          ('dataset.performance','query_stats','Model Performance'),
+          ('prediction.new_prediction','add_circle','New Prediction'),
+          ('prediction.history','history','Prediction History'),
+          ('settings.settings','settings','Settings'),
+        ] %}
+        {% for endpoint, icon, label in nav %}
+        <a href="{{ url_for(endpoint) }}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium {% if request.endpoint == endpoint %}bg-[#002924] text-[#76f8e3]{% else %}text-[#b7c7e4] hover:bg-[#000e23] hover:text-white{% endif %} transition-colors">
+          <span class="material-symbols-outlined text-[20px]">{{ icon }}</span><span>{{ label }}</span>
+        </a>
+        {% endfor %}
+      </nav>
+    </div>
+    <div class="p-4">
+      <div class="rounded-xl bg-white/5 p-3 mb-3">
+        <p class="text-white text-sm font-semibold truncate">{{ user.name }}</p>
+        <p class="text-[#7c8ba6] text-xs truncate">{{ user.email }}</p>
+      </div>
+      <a href="{{ url_for('auth.logout') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-[#b7c7e4] hover:bg-[#000e23] hover:text-white transition-colors">
+        <span class="material-symbols-outlined text-[20px]">logout</span><span>Logout</span>
+      </a>
+    </div>
+  </aside>
+  <main class="flex-1 ml-64 p-6 lg:p-8 max-w-[1600px]">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+        <div class="mb-4 px-4 py-3 rounded-xl border text-sm font-medium {% if category == 'error' %}bg-red-50 border-red-200 text-red-700{% else %}bg-teal-50 border-teal-200 text-teal-800{% endif %}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </main>
+</div>
+{% else %}
+<main class="min-h-screen">
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <div class="max-w-md mx-auto pt-6 px-4">
+      {% for category, message in messages %}
+      <div class="mb-3 px-4 py-3 rounded-xl border text-sm font-medium {% if category == 'error' %}bg-red-50 border-red-200 text-red-700{% else %}bg-teal-50 border-teal-200 text-teal-800{% endif %}">{{ message }}</div>
+      {% endfor %}
+    </div>
+    {% endif %}
+  {% endwith %}
+  {% block auth_content %}{% endblock %}
+</main>
+{% endif %}
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Manrope:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-secondary-fixed-variant":"#0b4490","on-primary-container":"#7c8ba6","surface-bright":"#f8f9ff","inverse-on-surface":"#eaf1ff","background":"#f8f9ff","primary-fixed-dim":"#b7c7e4","tertiary-container":"#002924","on-primary":"#ffffff","secondary-fixed":"#d8e2ff","primary":"#000e23","on-secondary-container":"#003f8a","error":"#ba1a1a","tertiary-fixed":"#76f8e3","secondary":"#2f5daa","primary-container":"#14243a","inverse-primary":"#b7c7e4","surface-container-highest":"#d4e4fc","surface":"#f8f9ff","secondary-fixed-dim":"#adc6ff","tertiary-fixed-dim":"#56dbc7","surface-tint":"#505f78","on-tertiary":"#ffffff","error-container":"#ffdad6","outline":"#75777d","surface-container-high":"#dce9ff","on-primary-fixed":"#0b1c32","on-surface-variant":"#44474d","outline-variant":"#c5c6cd","secondary-container":"#85adff","surface-container-lowest":"#ffffff","surface-container":"#e5eeff","on-tertiary-container":"#009c8b","on-error-container":"#93000a","surface-variant":"#d4e4fc","inverse-surface":"#223144","surface-container-low":"#eff4ff","on-background":"#0d1c2e","on-primary-fixed-variant":"#38475f","on-tertiary-fixed-variant":"#005047","on-secondary-fixed":"#001a41","on-secondary":"#ffffff","primary-fixed":"#d4e3ff","on-error":"#ffffff","surface-dim":"#ccdbf4","tertiary":"#00110e","on-tertiary-fixed":"#00201c","on-surface":"#0d1c2e"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"space-3xl":"3rem","space-xs":"0.25rem",gutter:"1.5rem","gutter-mobile":"0.75rem",margin:"2rem","space-2xl":"2rem","margin-mobile":"1rem","space-lg":"1rem","space-xl":"1.5rem","space-md":"0.75rem","space-xxs":"0.125rem","space-sm":"0.5rem"},fontFamily:{"headline-lg":["Manrope"],"body-sm":["Inter"],"body-lg":["Inter"],"label-md":["Inter"],"display-lg":["Manrope"],"label-sm":["Inter"],"headline-xl":["Manrope"],"display-lg-mobile":["Manrope"],"code-sm":["JetBrains Mono"],"headline-md":["Manrope"],"body-md":["Inter"]},fontSize:{"headline-lg":["22px",{lineHeight:"30px",letterSpacing:"-0.01em",fontWeight:"600"}],"body-sm":["12px",{lineHeight:"16px",fontWeight:"400"}],"body-lg":["16px",{lineHeight:"24px",fontWeight:"400"}],"label-md":["13px",{lineHeight:"18px",letterSpacing:"0.01em",fontWeight:"600"}],"display-lg":["36px",{lineHeight:"44px",letterSpacing:"-0.02em",fontWeight:"700"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.03em",fontWeight:"600"}],"headline-xl":["28px",{lineHeight:"36px",letterSpacing:"-0.015em",fontWeight:"600"}],"display-lg-mobile":["28px",{lineHeight:"36px",letterSpacing:"-0.015em",fontWeight:"700"}],"code-sm":["12px",{lineHeight:"16px",fontWeight:"500"}],"headline-md":["18px",{lineHeight:"26px",letterSpacing:"-0.005em",fontWeight:"600"}],"body-md":["14px",{lineHeight:"20px",fontWeight:"400"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-64 bg-primary-container z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-16 px-space-xl flex items-center gap-space-md"><img alt="LoanWise AI Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrAqikGdPADuth3eHHoHQ2xQicyz21axIn4WetgdFqv6GKl0tK3JDGx9GMeB1npl5fB-ozm-fSkSoVdooV-4fONFmjRepL5JmpeKkAIyUutQgn89T3heYJ7RGbNL-u9GJmxAuvPHFBvS7YjCYnfe8Cn-8rBVbd5_ZiVCRkO2rGX32vMt3I3J7b5p042WGK-YSEQXMrXOuRtaxAbXodjgzgRzYlonGddtTXRnklsK63A"/><div class="flex flex-col"><span class="font-headline-md text-headline-md text-on-primary tracking-tight">LoanWise AI</span><span class="font-label-sm text-label-sm text-on-primary-container uppercase tracking-wider">Risk Engine v3.2</span></div></div><nav class="px-space-md py-space-lg flex flex-col gap-space-xxs" data-active-classes="bg-tertiary-container text-on-tertiary-container font-label-md"><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg font-label-md text-label-md text-on-primary-container hover:bg-primary hover:text-on-primary transition-colors" data-path="dashboard" href="#dashboard"><span class="material-symbols-outlined text-[20px]">grid_view</span><span>Dashboard</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg font-label-md text-label-md text-on-primary-container hover:bg-primary hover:text-on-primary transition-colors" data-path="dataset-management" href="#dataset"><span class="material-symbols-outlined text-[20px]">database</span><span>Dataset Management</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg font-label-md text-label-md text-on-primary-container hover:bg-primary hover:text-on-primary transition-colors" data-path="model-performance" href="#models"><span class="material-symbols-outlined text-[20px]">query_stats</span><span>Model Performance</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg font-label-md text-label-md text-on-primary-container hover:bg-primary hover:text-on-primary transition-colors" data-path="new-prediction" href="#predict"><span class="material-symbols-outlined text-[20px]">neurology</span><span>New Prediction</span></a><a aria-current="page" class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg transition-colors bg-tertiary-container text-on-tertiary-container font-label-md" data-path="prediction-history" href="#history"><span class="material-symbols-outlined text-[20px]">history</span><span>Prediction History</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg font-label-md text-label-md text-on-primary-container hover:bg-primary hover:text-on-primary transition-colors" data-path="settings" href="#settings"><span class="material-symbols-outlined text-[20px]">settings</span><span>Settings</span></a></nav></div><div class="p-space-md flex flex-col gap-space-sm bg-primary/40"><div class="flex items-center gap-space-md p-space-sm rounded-lg"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBILVmDYCeIPqneq_bf21VUAXbbM9OiuuehxsG8V_QMXA4r3cwPYONJZ398UHLxWrSlK3e7SOXpB5PyiUkbBc1Df46QKkoOu3kdodCLl039QDwR6EORzdvRHSW1FZtzec0NXgBkWggyjM5ChJHl0II5xuMaaMjLiT94eyo_b4tm1Sn6LjTQKUZvGHTO-3Uz2p6xL2yr9tA9zRTOiM1uCpB64dBFe1xJqgPFeJvJrUY"/><div class="flex flex-col min-w-0 flex-1"><span class="font-label-md text-label-md text-on-primary truncate">Alex Morgan</span><span class="font-label-sm text-label-sm text-on-primary-container truncate">Senior Credit Analyst</span></div></div><a class="flex items-center justify-between px-space-md py-space-xs text-on-primary-container hover:text-on-primary font-label-sm text-label-sm transition-colors" data-path="login" href="#login"><span>Sign Out</span><span class="material-symbols-outlined text-[16px]">logout</span></a></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-sm"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Enterprise ML Underwriting</span><span class="text-outline-variant font-body-sm">/</span><span class="font-label-md text-label-md text-on-surface">Decision Core</span></div><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-xs px-space-sm py-space-xxs rounded-full bg-tertiary-fixed-dim/20 text-on-tertiary-container"><span class="w-2 h-2 rounded-full bg-on-tertiary-container"></span><span class="font-label-sm text-label-sm font-code-sm">5 Models Online</span></div><button class="flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">search</span><span class="font-label-sm text-label-sm">Quick Search (⌘K)</span></button><button class="relative p-space-xs text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 flex items-center justify-center w-4 h-4 rounded-full bg-error text-on-error text-[10px] font-bold">2</span></button><div class="flex items-center gap-space-xs"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBILVmDYCeIPqneq_bf21VUAXbbM9OiuuehxsG8V_QMXA4r3cwPYONJZ398UHLxWrSlK3e7SOXpB5PyiUkbBc1Df46QKkoOu3kdodCLl039QDwR6EORzdvRHSW1FZtzec0NXgBkWggyjM5ChJHl0II5xuMaaMjLiT94eyo_b4tm1Sn6LjTQKUZvGHTO-3Uz2p6xL2yr9tA9zRTOiM1uCpB64dBFe1xJqgPFeJvJrUY"/></div></div></header><main class="w-full pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<div class="p-space-xl lg:p-space-2xl flex flex-col gap-space-xl max-w-[1600px] w-full mx-auto">
+<!-- Page Header & Action Controls -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-lg">
+<div class="flex flex-col gap-space-xxs min-w-0">
+<div class="flex items-center gap-space-sm">
+<span class="px-space-sm py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-code-sm text-code-sm uppercase tracking-wider">Audit Log Ledger</span>
+<span class="flex items-center gap-space-xxs font-label-sm text-label-sm text-on-tertiary-container">
+<span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-container animate-pulse"></span>
+            Real-time Pipeline
+          </span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-primary font-bold tracking-tight">Prediction History</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Complete audit log of all applicant evaluations executed by the LoanWise ensemble engine.</p>
+</div>
+<div class="flex items-center gap-space-md self-start md:self-auto shrink-0">
+<button class="group flex items-center gap-space-sm px-space-lg py-space-sm rounded-lg bg-surface-container-lowest text-primary shadow-sm hover:bg-surface-container-low transition-all" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary group-hover:translate-y-0.5 transition-transform">download</span>
+<span class="font-label-md text-label-md">Export Audit Log (CSV)</span>
+</button>
+</div>
+</div>
+<!-- Metrics Summary Ribbon -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-space-md bg-surface-container-lowest p-space-md rounded-xl shadow-sm">
+<div class="flex items-center gap-space-md p-space-sm rounded-lg bg-surface-container-low">
+<div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-[20px]">dataset</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Total Evaluated</span>
+<span class="font-headline-md text-headline-md text-primary font-bold">4,269</span>
+</div>
+</div>
+<div class="flex items-center gap-space-md p-space-sm rounded-lg bg-surface-container-low">
+<div class="w-10 h-10 rounded-lg bg-tertiary-fixed-dim/30 flex items-center justify-center text-on-tertiary-container">
+<span class="material-symbols-outlined text-[20px]">verified</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Approved</span>
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container-highest text-on-surface text-[10px] font-bold">62.2%</span>
+</div>
+<span class="font-headline-md text-headline-md text-primary font-bold">2,656</span>
+</div>
+</div>
+<div class="flex items-center gap-space-md p-space-sm rounded-lg bg-surface-container-low">
+<div class="w-10 h-10 rounded-lg bg-error-container flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[20px]">cancel</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Rejected</span>
+<span class="px-space-xs py-0.5 rounded-full bg-error-container text-on-error-container text-[10px] font-bold">37.8%</span>
+</div>
+<span class="font-headline-md text-headline-md text-primary font-bold">1,613</span>
+</div>
+</div>
+<div class="flex items-center gap-space-md p-space-sm rounded-lg bg-surface-container-low">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">pending_actions</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Further Review</span>
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container-highest text-on-secondary-fixed text-[10px] font-bold">Queue</span>
+</div>
+<span class="font-headline-md text-headline-md text-primary font-bold">34</span>
+</div>
+</div>
+</div>
+<!-- Analytical Canvas: Filter Toolbar & Structured Data Table -->
+<div class="flex flex-col bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<!-- Filter & Search Control Toolbar -->
+<div class="p-space-lg flex flex-col xl:flex-row items-stretch xl:items-center justify-between gap-space-lg bg-surface-container-lowest">
+<!-- Left: Search Box -->
+<div class="relative flex-1 min-w-[280px] max-w-lg">
+<span class="material-symbols-outlined absolute left-space-md top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span>
+<input class="w-full pl-10 pr-space-md py-space-sm bg-surface-container-low text-on-surface font-body-md text-body-md rounded-lg placeholder-outline focus:outline-none focus:bg-surface-container-lowest transition-colors" placeholder="Search by Prediction ID, name, or loan amount..." type="text"/>
+</div>
+<!-- Right: Filter Chips & Dropdowns -->
+<div class="flex flex-wrap items-center gap-space-md">
+<!-- Status Filter Tabs Segmented -->
+<div class="inline-flex p-1 bg-surface-container-low rounded-lg gap-1">
+<button class="px-space-md py-1 rounded-md bg-surface-container-lowest text-primary font-label-sm text-label-sm shadow-sm transition-all" type="button">
+              All Decisions
+            </button>
+<button class="px-space-md py-1 rounded-md text-on-surface-variant hover:text-primary font-label-sm text-label-sm transition-colors flex items-center gap-1" type="button">
+<span>Approved</span>
+<span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-container"></span>
+</button>
+<button class="px-space-md py-1 rounded-md text-on-surface-variant hover:text-primary font-label-sm text-label-sm transition-colors flex items-center gap-1" type="button">
+<span>Rejected</span>
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+</button>
+<button class="px-space-md py-1 rounded-md text-on-surface-variant hover:text-primary font-label-sm text-label-sm transition-colors flex items-center gap-1" type="button">
+<span>Review</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+</button>
+</div>
+<!-- Date Range Selector -->
+<button class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px] text-outline">calendar_today</span>
+<span class="font-label-sm text-label-sm">Last 30 Days (Oct 1 - Oct 24, 2025)</span>
+<span class="material-symbols-outlined text-[16px] text-outline">expand_more</span>
+</button>
+<!-- CIBIL Tier Filter -->
+<button class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px] text-outline">speed</span>
+<span class="font-label-sm text-label-sm">All CIBIL Scores</span>
+<span class="material-symbols-outlined text-[16px] text-outline">expand_more</span>
+</button>
+<!-- Reset Filter -->
+<button class="p-space-sm rounded-lg text-outline hover:text-primary hover:bg-surface-container-low transition-colors" title="Clear Filters" type="button">
+<span class="material-symbols-outlined text-[18px]">filter_alt_off</span>
+</button>
+</div>
+</div>
+<!-- Audit Table Responsive Container -->
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/70">
+<th class="py-space-md px-space-lg font-label-sm text-label-sm text-outline uppercase tracking-wider" scope="col">Prediction ID</th>
+<th class="py-space-md px-space-lg font-label-sm text-label-sm text-outline uppercase tracking-wider" scope="col">Applicant Details</th>
+<th class="py-space-md px-space-lg font-label-sm text-label-sm text-outline uppercase tracking-wider text-right" scope="col">Annual Income</th>
+<th class="py-space-md px-space-lg font-label-sm text-label-sm text-outline uppercase tracking-wider text-right" scope="col">Loan Amount</th>
+<th class="py-space-md px-space-lg font-label-sm text-label-sm text-outline uppercase tracking-wider" scope="col">CIBIL Score</th>
+<th class="py-space-md px-space-lg font-label-sm text-label-sm text-outline uppercase tracking-wider" scope="col">Final Decision</th>
+<th class="py-space-md px-space-lg font-label-sm text-label-sm text-outline uppercase tracking-wider" scope="col">Date &amp; Time</th>
+<th class="py-space-md px-space-lg font-label-sm text-label-sm text-outline uppercase tracking-wider text-right" scope="col">Actions</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md divide-y divide-surface-container-low">
+<!-- Row 1: LP-4290 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors group">
+<td class="py-space-md px-space-lg">
+<span class="font-code-sm text-code-sm text-secondary font-semibold bg-surface-container-high/60 px-space-sm py-0.5 rounded">LP-4290</span>
+</td>
+<td class="py-space-md px-space-lg">
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-primary font-semibold truncate">James Vance</span>
+<span class="font-body-sm text-body-sm text-outline truncate">Graduate • Self-employed</span>
+</div>
+</td>
+<td class="py-space-md px-space-lg text-right font-code-sm text-code-sm text-primary">$7,500,000</td>
+<td class="py-space-md px-space-lg text-right font-code-sm text-code-sm font-semibold text-primary">$18,000,000</td>
+<td class="py-space-md px-space-lg">
+<div class="flex items-center gap-space-sm">
+<span class="font-code-sm text-code-sm font-semibold text-primary">754</span>
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-[10px]">Prime</span>
+</div>
+</td>
+<td class="py-space-md px-space-lg">
+<div class="inline-flex items-center gap-space-xs px-space-sm py-0.5 rounded-full bg-surface-container-low text-on-tertiary-container font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-container"></span>
+<span class="font-semibold">Approved</span>
+<span class="text-outline font-code-sm text-[10px] ml-1">(5/5 Votes)</span>
+</div>
+</td>
+<td class="py-space-md px-space-lg font-body-sm text-body-sm text-outline whitespace-nowrap">
+                Oct 24, 2025 <span class="text-outline-variant">•</span> 15:42
+              </td>
+<td class="py-space-md px-space-lg text-right">
+<div class="inline-flex items-center gap-space-xs">
+<button class="p-space-xs rounded text-outline hover:text-primary hover:bg-surface-container-low transition-colors" title="View Details" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-space-xs rounded text-outline hover:text-primary hover:bg-surface-container-low transition-colors" title="Download PDF Report" type="button">
+<span class="material-symbols-outlined text-[18px]">description</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: LP-4289 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors group">
+<td class="py-space-md px-space-lg">
+<span class="font-code-sm text-code-sm text-secondary font-semibold bg-surface-container-high/60 px-space-sm py-0.5 rounded">LP-4289</span>
+</td>
+<td class="py-space-md px-space-lg">
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-primary font-semibold truncate">Sarah Jenkins</span>
+<span class="font-body-sm text-body-sm text-outline truncate">Graduate • Salaried</span>
+</div>
+</td>
+<td class="py-space-md px-space-lg text-right font-code-sm text-code-sm text-primary">$9,600,000</td>
+<td class="py-space-md px-space-lg text-right font-code-sm text-code-sm font-semibold text-primary">$24,000,000</td>
+<td class="py-space-md px-space-lg">
+<div class="flex items-center gap-space-sm">
+<span class="font-code-sm text-code-sm font-semibold text-primary">792</span>
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-[10px]">Excellent</span>
+</div>
+</td>
+<td class="py-space-md px-space-lg">
+<div class="inline-flex items-center gap-space-xs px-space-sm py-0.5 rounded-full bg-surface-container-low text-on-tertiary-container font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-container"></span>
+<span class="font-semibold">Approved</span>
+<span class="text-outline font-code-sm text-[10px] ml-1">(5/5 Votes)</span>
+</div>
+</td>
+<td class="py-space-md px-space-lg font-body-sm text-body-sm text-outline whitespace-nowrap">
+                Oct 24, 2025 <span class="text-outline-variant">•</span> 14:22
+              </td>
+<td class="py-space-md px-space-lg text-right">
+<div class="inline-flex items-center gap-space-xs">
+<button class="p-space-xs rounded text-outline hover:text-primary hover:bg-surface-container-low transition-colors" title="View Details" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-space-xs rounded text-outline hover:text-primary hover:bg-surface-container-low transition-colors" title="Download PDF Report" type="button">
+<span class="material-symbols-outlined text-[18px]">description</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: LP-4288 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors group">
+<td class="py-space-md px-space-lg">
+<span class="font-code-sm text-code-sm text-secondary font-semibold bg-surface-container-high/60 px-space-sm py-0.5 rounded">LP-4288</span>
+</td>
+<td class="py-space-md px-space-lg">
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-primary font-semibold truncate">Michael Chang</span>
+<span class="font-body-sm text-body-sm text-outline truncate">Not Graduate • Self-employed</span>
+</div>
+</td>
+<td class="py-space-md px-space-lg text-right font-code-sm text-code-sm text-primary">$4,200,000</td>
+<td class="py-space-md px-space-lg text-right font-code-sm text-code-sm font-semibold text-primary">$12,500,000</td>
+<td class="py-space-md px-space-lg">
+<div class="flex items-center gap-space-sm">
+<span class="font-code-sm text-code-sm font-semibold text-primary">418</span>
+<span class="px-space-xs py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-[10px]">Poor</span>
+</div>
+</td>
+<td class="py-space-md px-space-lg">
+<div class="inline-flex items-center gap-space-xs px-space-sm py-0.5 rounded-full bg-error-container/40 text-error font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+<span class="font-semibold">Rejected</span>
+<span class="text-error/70 font-code-sm text-[10px] ml-1">(0/5 Votes)</span>
+</div>
+</td>
+<td class="py-space-md px-space-lg font-body-sm text-body-sm text-outline whitespace-nowrap">
+                Oct 24, 2025 <span class="text-outline-variant">•</span> 13:58
+              </td>
+<td class="py-space-md px-space-lg text-right">
+<div class="inline-flex items-center gap-space-xs">
+<button class="p-space-xs rounded text-outline hover:text-primary hover:bg-surface-container-low transition-colors" title="View Details" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-space-xs rounded text-outline hover:text-primary hover:bg-surface-container-low transition-colors" title="Download PDF Report" type="button">
+<span class="material-symbols-outlined text-[18px]">description</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4: LP-4287 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors group">
+<td class="py-space-md px-space-lg">
+<span class="font-code-sm text-code-sm text-secondary font-semibold bg-surface-container-high/60 px-space-sm py-0.5 rounded">LP-4287</span>
+</td>
+<td class="py-space-md px-space-lg">
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-primary font-semibold truncate">Priya Sharma</span>
+<span class="font-body-sm text-body-sm text-outline truncate">Graduate • Salaried</span>
+</div>
+</td>
+<td class="py-space-md px-space-lg text-right font-code-sm text-code-sm text-primary">$7,500,000</td>
+<td class="py-space-md px-space-lg text-right font-code-sm text-code-sm font-semibold text-primary">$18,000,000</td>
+<td class="py-space-md px-space-lg">
+<div class="flex items-center gap-space-sm">
+<span class="font-code-sm text-code-sm font-semibold text-primary">688</span>
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-[10px]">Moderate</span>
+</div>
+</td>
+<td class="py-space-md px-space-lg">
+<div class="inline-flex items-center gap-space-xs px-space-sm py-0.5 rounded-full bg-surface-container-highest text-secondary font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-semibold">Further Review</span>
+<span class="text-on-surface-variant font-code-sm text-[10px] ml-1">(3/5 Votes)</span>
+</div>
+</td>
+<td class="py-space-md px-space-lg font-body-sm text-body-sm text-outline whitespace-nowrap">
+                Oct 24, 2025 <span class="text-outline-variant">•</span> 13:12
+              </td>
+<td class="py-space-md px-space-lg text-right">
+<div class="inline-flex items-center gap-space-xs">
+<button class="p-space-xs rounded text-outline hover:text-primary hover:bg-surface-container-low transition-colors" title="View Details" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-space-xs rounded text-outline hover:text-primary hover:bg-surface-container-low transition-colors" title="Download PDF Report" type="button">
+<span class="material-symbols-outlined text-[18px]">description</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5: LP-4286 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors group">
+<td class="py-space-md px-space-lg">
+<span class="font-code-sm text-code-sm text-secondary font-semibold bg-surface-container-high/60 px-space-sm py-0.5 rounded">LP-4286</span>
+</td>
+<td class="py-space-md px-space-lg">
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-primary font-semibold truncate">Robert Sterling</span>
+<span class="font-body-sm text-body-sm text-outline truncate">Graduate • Salaried</span>
+</div>
+</td>
+<td class="py-space-md px-space-lg text-right font-code-sm text-code-sm text-primary">$11,200,000</td>
+<td class="py-space-md px-space-lg text-right font-code-sm text-code-sm font-semibold text-primary">$31,000,000</td>
+<td class="py-space-md px-space-lg">
+<div class="flex items-center gap-space-sm">
+<span class="font-code-sm text-code-sm font-semibold text-primary">815</span>
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-[10px]">Excellent</span>
+</div>
+</td>
+<td class="py-space-md px-space-lg">
+<div class="inline-flex items-center gap-space-xs px-space-sm py-0.5 rounded-full bg-surface-container-low text-on-tertiary-container font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-container"></span>
+<span class="font-semibold">Approved</span>
+<span class="text-outline font-code-sm text-[10px] ml-1">(5/5 Votes)</span>
+</div>
+</td>
+<td class="py-space-md px-space-lg font-body-sm text-body-sm text-outline whitespace-nowrap">
+                Oct 24, 2025 <span class="text-outline-variant">•</span> 11:45
+              </td>
+<td class="py-space-md px-space-lg text-right">
+<div class="inline-flex items-center gap-space-xs">
+<button class="p-space-xs rounded text-outline hover:text-primary hover:bg-surface-container-low transition-colors" title="View Details" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-space-xs rounded text-outline hover:text-primary hover:bg-surface-container-low transition-colors" title="Download PDF Report" type="button">
+<span class="material-symbols-outlined text-[18px]">description</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 6: LP-4285 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors group">
+<td class="py-space-md px-space-lg">
+<span class="font-code-sm text-code-sm text-secondary font-semibold bg-surface-container-high/60 px-space-sm py-0.5 rounded">LP-4285</span>
+</td>
+<td class="py-space-md px-space-lg">
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-primary font-semibold truncate">Elena Rostova</span>
+<span class="font-body-sm text-body-sm text-outline truncate">Not Graduate • Self-employed</span>
+</div>
+</td>
+<td class="py-space-md px-space-lg text-right font-code-sm text-code-sm text-primary">$3,100,000</td>
+<td class="py-space-md px-space-lg text-right font-code-sm text-code-sm font-semibold text-primary">$9,800,000</td>
+<td class="py-space-md px-space-lg">
+<div class="flex items-center gap-space-sm">
+<span class="font-code-sm text-code-sm font-semibold text-primary">348</span>
+<span class="px-space-xs py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-[10px]">High Risk</span>
+</div>
+</td>
+<td class="py-space-md px-space-lg">
+<div class="inline-flex items-center gap-space-xs px-space-sm py-0.5 rounded-full bg-error-container/40 text-error font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+<span class="font-semibold">Rejected</span>
+<span class="text-error/70 font-code-sm text-[10px] ml-1">(0/5 Votes)</span>
+</div>
+</td>
+<td class="py-space-md px-space-lg font-body-sm text-body-sm text-outline whitespace-nowrap">
+                Oct 24, 2025 <span class="text-outline-variant">•</span> 09:30
+              </td>
+<td class="py-space-md px-space-lg text-right">
+<div class="inline-flex items-center gap-space-xs">
+<button class="p-space-xs rounded text-outline hover:text-primary hover:bg-surface-container-low transition-colors" title="View Details" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-space-xs rounded text-outline hover:text-primary hover:bg-surface-container-low transition-colors" title="Download PDF Report" type="button">
+<span class="material-symbols-outlined text-[18px]">description</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 7: LP-4284 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors group">
+<td class="py-space-md px-space-lg">
+<span class="font-code-sm text-code-sm text-secondary font-semibold bg-surface-container-high/60 px-space-sm py-0.5 rounded">LP-4284</span>
+</td>
+<td class="py-space-md px-space-lg">
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-primary font-semibold truncate">David Miller</span>
+<span class="font-body-sm text-body-sm text-outline truncate">Graduate • Salaried</span>
+</div>
+</td>
+<td class="py-space-md px-space-lg text-right font-code-sm text-code-sm text-primary">$6,400,000</td>
+<td class="py-space-md px-space-lg text-right font-code-sm text-code-sm font-semibold text-primary">$15,000,000</td>
+<td class="py-space-md px-space-lg">
+<div class="flex items-center gap-space-sm">
+<span class="font-code-sm text-code-sm font-semibold text-primary">720</span>
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-[10px]">Good</span>
+</div>
+</td>
+<td class="py-space-md px-space-lg">
+<div class="inline-flex items-center gap-space-xs px-space-sm py-0.5 rounded-full bg-surface-container-low text-on-tertiary-container font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-container"></span>
+<span class="font-semibold">Approved</span>
+<span class="text-outline font-code-sm text-[10px] ml-1">(5/5 Votes)</span>
+</div>
+</td>
+<td class="py-space-md px-space-lg font-body-sm text-body-sm text-outline whitespace-nowrap">
+                Oct 23, 2025 <span class="text-outline-variant">•</span> 16:50
+              </td>
+<td class="py-space-md px-space-lg text-right">
+<div class="inline-flex items-center gap-space-xs">
+<button class="p-space-xs rounded text-outline hover:text-primary hover:bg-surface-container-low transition-colors" title="View Details" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-space-xs rounded text-outline hover:text-primary hover:bg-surface-container-low transition-colors" title="Download PDF Report" type="button">
+<span class="material-symbols-outlined text-[18px]">description</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 8: LP-4283 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors group">
+<td class="py-space-md px-space-lg">
+<span class="font-code-sm text-code-sm text-secondary font-semibold bg-surface-container-high/60 px-space-sm py-0.5 rounded">LP-4283</span>
+</td>
+<td class="py-space-md px-space-lg">
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-primary font-semibold truncate">Anita Patel</span>
+<span class="font-body-sm text-body-sm text-outline truncate">Graduate • Self-employed</span>
+</div>
+</td>
+<td class="py-space-md px-space-lg text-right font-code-sm text-code-sm text-primary">$5,800,000</td>
+<td class="py-space-md px-space-lg text-right font-code-sm text-code-sm font-semibold text-primary">$14,000,000</td>
+<td class="py-space-md px-space-lg">
+<div class="flex items-center gap-space-sm">
+<span class="font-code-sm text-code-sm font-semibold text-primary">672</span>
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-[10px]">Moderate</span>
+</div>
+</td>
+<td class="py-space-md px-space-lg">
+<div class="inline-flex items-center gap-space-xs px-space-sm py-0.5 rounded-full bg-surface-container-highest text-secondary font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-semibold">Further Review</span>
+<span class="text-on-surface-variant font-code-sm text-[10px] ml-1">(3/5 Votes)</span>
+</div>
+</td>
+<td class="py-space-md px-space-lg font-body-sm text-body-sm text-outline whitespace-nowrap">
+                Oct 23, 2025 <span class="text-outline-variant">•</span> 15:10
+              </td>
+<td class="py-space-md px-space-lg text-right">
+<div class="inline-flex items-center gap-space-xs">
+<button class="p-space-xs rounded text-outline hover:text-primary hover:bg-surface-container-low transition-colors" title="View Details" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-space-xs rounded text-outline hover:text-primary hover:bg-surface-container-low transition-colors" title="Download PDF Report" type="button">
+<span class="material-symbols-outlined text-[18px]">description</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination Footer -->
+<div class="px-space-lg py-space-md bg-surface-container-low/50 flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<span class="font-body-sm text-body-sm text-on-surface-variant">
+          Showing <span class="font-semibold text-primary">1</span> to <span class="font-semibold text-primary">8</span> of <span class="font-semibold text-primary">4,269</span> predictions
+        </span>
+<div class="inline-flex items-center gap-space-xs">
+<!-- Previous Button -->
+<button class="flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-outline opacity-50 cursor-not-allowed font-label-sm text-label-sm" disabled="" type="button">
+<span class="material-symbols-outlined text-[16px]">chevron_left</span>
+<span>Previous</span>
+</button>
+<!-- Numbered Pages -->
+<div class="flex items-center gap-1 mx-space-xs">
+<button class="w-8 h-8 rounded-lg bg-primary-container text-on-primary font-label-sm text-label-sm font-semibold flex items-center justify-center shadow-sm" type="button">1</button>
+<button class="w-8 h-8 rounded-lg text-on-surface hover:bg-surface-container font-label-sm text-label-sm flex items-center justify-center transition-colors" type="button">2</button>
+<button class="w-8 h-8 rounded-lg text-on-surface hover:bg-surface-container font-label-sm text-label-sm flex items-center justify-center transition-colors" type="button">3</button>
+<span class="w-6 text-center text-outline font-label-sm">...</span>
+<button class="w-8 h-8 rounded-lg text-on-surface hover:bg-surface-container font-label-sm text-label-sm flex items-center justify-center transition-colors" type="button">534</button>
+</div>
+<!-- Next Button -->
+<button class="flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface hover:bg-surface-container transition-colors font-label-sm text-label-sm" type="button">
+<span>Next</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Technical System Micro-Footer -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-space-sm py-space-sm text-outline font-label-sm text-label-sm">
+<div class="flex items-center gap-space-md">
+<span class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container"></span>
+          Audit Node: <span class="font-code-sm text-primary">us-east-cluster-04</span>
+</span>
+<span class="hidden sm:inline">•</span>
+<span>Cryptographic Hash Integrity: <span class="font-code-sm text-primary">SHA-256 Verified</span></span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span>Retention: 7 Years (FINRA Compliant)</span>
+</div>
+</div>
+</div>
+</div></main></div></body></html>

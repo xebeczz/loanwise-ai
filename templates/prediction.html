@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}New Prediction - LoanWise AI{% endblock %}
+{% block content %}
+<h1 class="font-display font-bold text-3xl text-navy">New Loan Prediction</h1>
+<p class="text-muted mt-1 mb-6">Enter the applicant's details. All five trained models will vote, and the final decision follows the 5-vote rule.</p>
+
+{% if blocked %}
+<div class="bg-white rounded-2xl border border-slate-200 p-10 text-center">
+  <span class="material-symbols-outlined text-5xl text-royal">add_circle</span>
+  <h2 class="font-display font-bold text-2xl text-navy mt-4">Models are not ready yet</h2>
+  <p class="text-muted mt-2">Please upload and process a loan dataset before making predictions.</p>
+  <a href="{{ url_for('dataset.dataset_page') }}" class="inline-block mt-6 px-6 py-3 rounded-xl bg-navy text-white font-semibold">Go to Dataset Management</a>
+</div>
+{% else %}
+<p class="text-sm text-muted mb-6">Active dataset: <b>{{ dataset.original_filename }}</b></p>
+<form method="post" id="predictionForm" class="bg-white rounded-2xl border border-slate-200 p-6 lg:p-8 space-y-8">
+  <div>
+    <h2 class="font-display font-bold text-lg text-navy mb-4">Applicant Information</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div><label class="block text-sm font-semibold mb-1.5" for="no_of_dependents">Number of Dependents</label>
+        <input id="no_of_dependents" name="no_of_dependents" type="number" min="0" required value="{{ form_data.no_of_dependents if form_data else '' }}" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-royal"/></div>
+      <div><label class="block text-sm font-semibold mb-1.5" for="education">Education</label>
+        <select id="education" name="education" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-royal bg-white">
+          <option value="Graduate" {% if form_data and form_data.education == 'Graduate' %}selected{% endif %}>Graduate</option>
+          <option value="Not Graduate" {% if form_data and form_data.education == 'Not Graduate' %}selected{% endif %}>Not Graduate</option>
+        </select></div>
+      <div><label class="block text-sm font-semibold mb-1.5" for="self_employed">Employment Status</label>
+        <select id="self_employed" name="self_employed" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-royal bg-white">
+          <option value="Salaried" {% if form_data and form_data.self_employed == 'Salaried' %}selected{% endif %}>Salaried</option>
+          <option value="Self-employed" {% if form_data and form_data.self_employed == 'Self-employed' %}selected{% endif %}>Self-employed</option>
+        </select></div>
+    </div>
+  </div>
+  <div>
+    <h2 class="font-display font-bold text-lg text-navy mb-4">Financial Information</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div><label class="block text-sm font-semibold mb-1.5" for="income_annum">Annual Income (Rs.)</label>
+        <input id="income_annum" name="income_annum" type="number" min="1" step="any" required value="{{ form_data.income_annum if form_data else '' }}" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-royal"/></div>
+      <div><label class="block text-sm font-semibold mb-1.5" for="loan_amount">Loan Amount (Rs.)</label>
+        <input id="loan_amount" name="loan_amount" type="number" min="1" step="any" required value="{{ form_data.loan_amount if form_data else '' }}" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-royal"/></div>
+      <div><label class="block text-sm font-semibold mb-1.5" for="loan_term">Loan Term (Years)</label>
+        <input id="loan_term" name="loan_term" type="number" min="1" required value="{{ form_data.loan_term if form_data else '' }}" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-royal"/></div>
+    </div>
+  </div>
+  <div>
+    <h2 class="font-display font-bold text-lg text-navy mb-4">Credit and Assets</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div><label class="block text-sm font-semibold mb-1.5" for="cibil_score">CIBIL Score (300-900)</label>
+        <input id="cibil_score" name="cibil_score" type="number" min="300" max="900" required value="{{ form_data.cibil_score if form_data else '' }}" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-royal"/></div>
+      <div><label class="block text-sm font-semibold mb-1.5" for="residential_assets_value">Residential Assets Value (Rs.)</label>
+        <input id="residential_assets_value" name="residential_assets_value" type="number" min="0" step="any" required value="{{ form_data.residential_assets_value if form_data else '' }}" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-royal"/></div>
+      <div><label class="block text-sm font-semibold mb-1.5" for="commercial_assets_value">Commercial Assets Value (Rs.)</label>
+        <input id="commercial_assets_value" name="commercial_assets_value" type="number" min="0" step="any" required value="{{ form_data.commercial_assets_value if form_data else '' }}" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-royal"/></div>
+      <div><label class="block text-sm font-semibold mb-1.5" for="luxury_assets_value">Luxury Assets Value (Rs.)</label>
+        <input id="luxury_assets_value" name="luxury_assets_value" type="number" min="0" step="any" required value="{{ form_data.luxury_assets_value if form_data else '' }}" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-royal"/></div>
+      <div><label class="block text-sm font-semibold mb-1.5" for="bank_asset_value">Bank Assets Value (Rs.)</label>
+        <input id="bank_asset_value" name="bank_asset_value" type="number" min="0" step="any" required value="{{ form_data.bank_asset_value if form_data else '' }}" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-royal"/></div>
+    </div>
+  </div>
+  <div class="flex flex-wrap gap-3 pt-2">
+    <button type="button" id="sampleBtn" class="px-6 py-3 rounded-xl bg-royal text-white font-semibold hover:bg-[#274b8a]">Try Sample Applicant</button>
+    <button type="button" id="resetBtn" class="px-6 py-3 rounded-xl border border-slate-300 font-semibold text-slate-600 hover:bg-slate-50">Reset Form</button>
+    <button type="submit" class="px-6 py-3 rounded-xl bg-navy text-white font-semibold hover:bg-[#0b1c32]">Analyse Application</button>
+  </div>
+</form>
+{% endif %}
+{% endblock %}
+{% block scripts %}
+<script>
+const SAMPLE = {{ sample|tojson }};
+document.getElementById('sampleBtn')?.addEventListener('click', () => {
+  const map = { no_of_dependents: SAMPLE.no_of_dependents, education: SAMPLE.education, self_employed: SAMPLE.self_employed, income_annum: SAMPLE.income_annum, loan_amount: SAMPLE.loan_amount, loan_term: SAMPLE.loan_term, cibil_score: SAMPLE.cibil_score, residential_assets_value: SAMPLE.residential_assets_value, commercial_assets_value: SAMPLE.commercial_assets_value, luxury_assets_value: SAMPLE.luxury_assets_value, bank_asset_value: SAMPLE.bank_asset_value };
+  for (const [k, v] of Object.entries(map)) { const el = document.getElementById(k); if (el) el.value = v; }
+});
+document.getElementById('resetBtn')?.addEventListener('click', () => document.getElementById('predictionForm').reset());
+</script>
+{% endblock %}

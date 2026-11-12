@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}Prediction Result #{{ prediction.id }} - LoanWise AI{% endblock %}
+{% block content %}
+{% set approved = prediction.final_decision == 'APPROVED' %}
+{% set rejected = prediction.final_decision == 'REJECTED' %}
+<!-- Large result banner: green / red / amber by decision -->
+<div class="rounded-2xl p-8 text-center text-white mb-6 {% if approved %}bg-green-600{% elif rejected %}bg-red-500{% else %}bg-amber-500{% endif %}">
+  <p class="text-sm uppercase tracking-widest opacity-80">Final Decision</p>
+  <h1 class="font-display font-extrabold text-4xl mt-2">{{ prediction.final_decision }}</h1>
+  <p class="mt-2 opacity-90">{{ prediction.approval_votes }} approval vote{{ 's' if prediction.approval_votes != 1 else '' }} &middot; {{ prediction.rejection_votes }} rejection vote{{ 's' if prediction.rejection_votes != 1 else '' }} &middot; Prediction #{{ prediction.id }} &middot; {{ prediction.created_at.strftime('%d %b %Y, %I:%M %p') }}</p>
+  <p class="text-sm opacity-80 mt-1">{% if approved %}All five models voted Approve.{% elif rejected %}All five models voted Reject.{% else %}The models disagreed - this application needs further review by a human officer.{% endif %}</p>
+</div>
+
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
+  <div class="bg-white rounded-2xl border border-slate-200 p-6">
+    <h2 class="font-display font-bold text-lg text-navy mb-4">Individual Model Predictions</h2>
+    <table class="w-full text-sm">
+      <thead><tr class="text-left text-muted border-b"><th class="py-2">Model</th><th class="py-2">Prediction</th></tr></thead>
+      <tbody>
+      {% for name, v in prediction.votes() %}
+      <tr class="border-b last:border-0"><td class="py-2.5 font-medium">{{ name }}</td><td class="py-2.5"><span class="px-2.5 py-1 rounded-full text-xs font-semibold {% if v %}bg-green-100 text-green-700{% else %}bg-red-100 text-red-700{% endif %}">{{ 'Approve' if v else 'Reject' }}</span></td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="bg-white rounded-2xl border border-slate-200 p-6">
+    <h2 class="font-display font-bold text-lg text-navy mb-4">Applicant Details</h2>
+    <dl class="text-sm space-y-2">
+      <div class="flex justify-between"><dt class="text-muted">Dependents</dt><dd class="font-medium">{{ prediction.no_of_dependents }}</dd></div>
+      <div class="flex justify-between"><dt class="text-muted">Education</dt><dd class="font-medium">{{ prediction.education }}</dd></div>
+      <div class="flex justify-between"><dt class="text-muted">Employment</dt><dd class="font-medium">{{ prediction.self_employed }}</dd></div>
+      <div class="flex justify-between"><dt class="text-muted">Annual Income</dt><dd class="font-medium">Rs. {{ "{:,.0f}".format(prediction.income_annum) }}</dd></div>
+      <div class="flex justify-between"><dt class="text-muted">Loan Amount</dt><dd class="font-medium">Rs. {{ "{:,.0f}".format(prediction.loan_amount) }}</dd></div>
+      <div class="flex justify-between"><dt class="text-muted">Loan Term</dt><dd class="font-medium">{{ prediction.loan_term }} years</dd></div>
+      <div class="flex justify-between"><dt class="text-muted">CIBIL Score</dt><dd class="font-medium">{{ prediction.cibil_score }}</dd></div>
+      <div class="flex justify-between"><dt class="text-muted">Residential Assets</dt><dd class="font-medium">Rs. {{ "{:,.0f}".format(prediction.residential_assets_value) }}</dd></div>
+      <div class="flex justify-between"><dt class="text-muted">Commercial Assets</dt><dd class="font-medium">Rs. {{ "{:,.0f}".format(prediction.commercial_assets_value) }}</dd></div>
+      <div class="flex justify-between"><dt class="text-muted">Luxury Assets</dt><dd class="font-medium">Rs. {{ "{:,.0f}".format(prediction.luxury_assets_value) }}</dd></div>
+      <div class="flex justify-between"><dt class="text-muted">Bank Assets</dt><dd class="font-medium">Rs. {{ "{:,.0f}".format(prediction.bank_asset_value) }}</dd></div>
+    </dl>
+  </div>
+</div>
+
+<div class="flex flex-wrap gap-3">
+  <a href="{{ url_for('reports.prediction_pdf', prediction_id=prediction.id) }}" class="px-6 py-3 rounded-xl bg-navy text-white font-semibold hover:bg-[#0b1c32]">Download PDF Report</a>
+  <a href="{{ url_for('prediction.new_prediction') }}" class="px-6 py-3 rounded-xl bg-royal text-white font-semibold hover:bg-[#274b8a]">New Prediction</a>
+  <a href="{{ url_for('dashboard.dashboard') }}" class="px-6 py-3 rounded-xl border border-slate-300 font-semibold text-slate-600 hover:bg-slate-50">Back to Dashboard</a>
+</div>
+{% endblock %}

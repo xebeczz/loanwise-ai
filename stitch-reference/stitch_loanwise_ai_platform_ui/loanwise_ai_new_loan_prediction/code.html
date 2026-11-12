@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Manrope:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-secondary-fixed-variant":"#0b4490","on-primary-container":"#7c8ba6","surface-bright":"#f8f9ff","inverse-on-surface":"#eaf1ff","background":"#f8f9ff","primary-fixed-dim":"#b7c7e4","tertiary-container":"#002924","on-primary":"#ffffff","secondary-fixed":"#d8e2ff","primary":"#000e23","on-secondary-container":"#003f8a","error":"#ba1a1a","tertiary-fixed":"#76f8e3","secondary":"#2f5daa","primary-container":"#14243a","inverse-primary":"#b7c7e4","surface-container-highest":"#d4e4fc","surface":"#f8f9ff","secondary-fixed-dim":"#adc6ff","tertiary-fixed-dim":"#56dbc7","surface-tint":"#505f78","on-tertiary":"#ffffff","error-container":"#ffdad6","outline":"#75777d","surface-container-high":"#dce9ff","on-primary-fixed":"#0b1c32","on-surface-variant":"#44474d","outline-variant":"#c5c6cd","secondary-container":"#85adff","surface-container-lowest":"#ffffff","surface-container":"#e5eeff","on-tertiary-container":"#009c8b","on-error-container":"#93000a","surface-variant":"#d4e4fc","inverse-surface":"#223144","surface-container-low":"#eff4ff","on-background":"#0d1c2e","on-primary-fixed-variant":"#38475f","on-tertiary-fixed-variant":"#005047","on-secondary-fixed":"#001a41","on-secondary":"#ffffff","primary-fixed":"#d4e3ff","on-error":"#ffffff","surface-dim":"#ccdbf4","tertiary":"#00110e","on-tertiary-fixed":"#00201c","on-surface":"#0d1c2e"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"space-3xl":"3rem","space-xs":"0.25rem",gutter:"1.5rem","gutter-mobile":"0.75rem",margin:"2rem","space-2xl":"2rem","margin-mobile":"1rem","space-lg":"1rem","space-xl":"1.5rem","space-md":"0.75rem","space-xxs":"0.125rem","space-sm":"0.5rem"},fontFamily:{"headline-lg":["Manrope"],"body-sm":["Inter"],"body-lg":["Inter"],"label-md":["Inter"],"display-lg":["Manrope"],"label-sm":["Inter"],"headline-xl":["Manrope"],"display-lg-mobile":["Manrope"],"code-sm":["JetBrains Mono"],"headline-md":["Manrope"],"body-md":["Inter"]},fontSize:{"headline-lg":["22px",{lineHeight:"30px",letterSpacing:"-0.01em",fontWeight:"600"}],"body-sm":["12px",{lineHeight:"16px",fontWeight:"400"}],"body-lg":["16px",{lineHeight:"24px",fontWeight:"400"}],"label-md":["13px",{lineHeight:"18px",letterSpacing:"0.01em",fontWeight:"600"}],"display-lg":["36px",{lineHeight:"44px",letterSpacing:"-0.02em",fontWeight:"700"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.03em",fontWeight:"600"}],"headline-xl":["28px",{lineHeight:"36px",letterSpacing:"-0.015em",fontWeight:"600"}],"display-lg-mobile":["28px",{lineHeight:"36px",letterSpacing:"-0.015em",fontWeight:"700"}],"code-sm":["12px",{lineHeight:"16px",fontWeight:"500"}],"headline-md":["18px",{lineHeight:"26px",letterSpacing:"-0.005em",fontWeight:"600"}],"body-md":["14px",{lineHeight:"20px",fontWeight:"400"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-64 bg-primary-container z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-16 px-space-xl flex items-center gap-space-md"><img alt="LoanWise AI Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrAqikGdPADuth3eHHoHQ2xQicyz21axIn4WetgdFqv6GKl0tK3JDGx9GMeB1npl5fB-ozm-fSkSoVdooV-4fONFmjRepL5JmpeKkAIyUutQgn89T3heYJ7RGbNL-u9GJmxAuvPHFBvS7YjCYnfe8Cn-8rBVbd5_ZiVCRkO2rGX32vMt3I3J7b5p042WGK-YSEQXMrXOuRtaxAbXodjgzgRzYlonGddtTXRnklsK63A"/><div class="flex flex-col"><span class="font-headline-md text-headline-md text-on-primary tracking-tight">LoanWise AI</span><span class="font-label-sm text-label-sm text-on-primary-container uppercase tracking-wider">Risk Engine v3.2</span></div></div><nav class="px-space-md py-space-lg flex flex-col gap-space-xxs" data-active-classes="bg-tertiary-container text-on-tertiary-container font-label-md"><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg font-label-md text-label-md text-on-primary-container hover:bg-primary hover:text-on-primary transition-colors" data-path="dashboard" href="#dashboard"><span class="material-symbols-outlined text-[20px]">grid_view</span><span>Dashboard</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg font-label-md text-label-md text-on-primary-container hover:bg-primary hover:text-on-primary transition-colors" data-path="dataset-management" href="#dataset"><span class="material-symbols-outlined text-[20px]">database</span><span>Dataset Management</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg font-label-md text-label-md text-on-primary-container hover:bg-primary hover:text-on-primary transition-colors" data-path="model-performance" href="#models"><span class="material-symbols-outlined text-[20px]">query_stats</span><span>Model Performance</span></a><a aria-current="page" class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg transition-colors bg-tertiary-container text-on-tertiary-container font-label-md" data-path="new-prediction" href="#predict"><span class="material-symbols-outlined text-[20px]">neurology</span><span>New Prediction</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg font-label-md text-label-md text-on-primary-container hover:bg-primary hover:text-on-primary transition-colors" data-path="prediction-history" href="#history"><span class="material-symbols-outlined text-[20px]">history</span><span>Prediction History</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg font-label-md text-label-md text-on-primary-container hover:bg-primary hover:text-on-primary transition-colors" data-path="settings" href="#settings"><span class="material-symbols-outlined text-[20px]">settings</span><span>Settings</span></a></nav></div><div class="p-space-md flex flex-col gap-space-sm bg-primary/40"><div class="flex items-center gap-space-md p-space-sm rounded-lg"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBILVmDYCeIPqneq_bf21VUAXbbM9OiuuehxsG8V_QMXA4r3cwPYONJZ398UHLxWrSlK3e7SOXpB5PyiUkbBc1Df46QKkoOu3kdodCLl039QDwR6EORzdvRHSW1FZtzec0NXgBkWggyjM5ChJHl0II5xuMaaMjLiT94eyo_b4tm1Sn6LjTQKUZvGHTO-3Uz2p6xL2yr9tA9zRTOiM1uCpB64dBFe1xJqgPFeJvJrUY"/><div class="flex flex-col min-w-0 flex-1"><span class="font-label-md text-label-md text-on-primary truncate">Alex Morgan</span><span class="font-label-sm text-label-sm text-on-primary-container truncate">Senior Credit Analyst</span></div></div><a class="flex items-center justify-between px-space-md py-space-xs text-on-primary-container hover:text-on-primary font-label-sm text-label-sm transition-colors" data-path="login" href="#login"><span>Sign Out</span><span class="material-symbols-outlined text-[16px]">logout</span></a></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-sm"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Enterprise ML Underwriting</span><span class="text-outline-variant font-body-sm">/</span><span class="font-label-md text-label-md text-on-surface">Decision Core</span></div><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-xs px-space-sm py-space-xxs rounded-full bg-tertiary-fixed-dim/20 text-on-tertiary-container"><span class="w-2 h-2 rounded-full bg-on-tertiary-container"></span><span class="font-label-sm text-label-sm font-code-sm">5 Models Online</span></div><button class="flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">search</span><span class="font-label-sm text-label-sm">Quick Search (⌘K)</span></button><button class="relative p-space-xs text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 flex items-center justify-center w-4 h-4 rounded-full bg-error text-on-error text-[10px] font-bold">2</span></button><div class="flex items-center gap-space-xs"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBILVmDYCeIPqneq_bf21VUAXbbM9OiuuehxsG8V_QMXA4r3cwPYONJZ398UHLxWrSlK3e7SOXpB5PyiUkbBc1Df46QKkoOu3kdodCLl039QDwR6EORzdvRHSW1FZtzec0NXgBkWggyjM5ChJHl0II5xuMaaMjLiT94eyo_b4tm1Sn6LjTQKUZvGHTO-3Uz2p6xL2yr9tA9zRTOiM1uCpB64dBFe1xJqgPFeJvJrUY"/></div></div></header><main class="w-full pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<div class="w-full max-w-7xl mx-auto px-space-xl py-space-xl flex flex-col gap-space-xl">
+<!-- Top Level Sub-Header Context -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-lg pb-space-xs">
+<div class="flex flex-col gap-space-xxs">
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center px-space-xs py-0.5 rounded-full text-label-sm font-label-sm font-code-sm bg-surface-container-high text-secondary">
+            SIMULATION MODE ACTIVE
+          </span>
+<span class="text-on-surface-variant font-code-sm text-body-sm">•</span>
+<span class="text-on-surface-variant font-body-sm text-body-sm">Inference Latency: ~140ms</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-primary font-bold tracking-tight">Loan Approval Prediction</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+          Enter applicant financial details to evaluate the loan application using five machine learning models in real-time consensus.
+        </p>
+</div>
+<div class="flex items-center gap-space-md self-start md:self-auto">
+<button class="inline-flex items-center gap-space-sm px-space-lg py-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-all duration-150 shadow-sm group" id="btn-sample-applicant" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary group-hover:rotate-12 transition-transform duration-200">auto_fix_high</span>
+<span>Try Sample Applicant</span>
+</button>
+</div>
+</div>
+<!-- Layout Grid: 8-col / 4-col Split -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+<!-- Primary Input Form Column -->
+<form class="lg:col-span-8 flex flex-col gap-space-lg" id="prediction-form" onsubmit="event.preventDefault();">
+<!-- Section A: Demographics -->
+<div class="bg-surface-container-lowest rounded-xl p-space-xl shadow-sm flex flex-col gap-space-lg">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-md">
+<span class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center font-code-sm text-label-md text-primary font-bold">01</span>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold">Applicant Demographics</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Baseline borrower classification profile</p>
+</div>
+</div>
+<span class="inline-flex items-center gap-space-xxs text-label-sm font-label-sm text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+              Core Factors
+            </span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<!-- Dependents -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-on-surface" for="input-dependents">Number of Dependents</label>
+<div class="flex items-center bg-surface-container-low rounded-lg p-1">
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-surface-container-lowest hover:bg-surface text-on-surface transition-colors shadow-sm" id="dep-dec" type="button">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<input class="w-full text-center bg-transparent border-0 outline-none font-code-sm text-body-lg text-on-surface font-medium focus:ring-0" id="input-dependents" max="10" min="0" name="dependents" placeholder="e.g., 2" type="number" value="2"/>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-surface-container-lowest hover:bg-surface text-on-surface transition-colors shadow-sm" id="dep-inc" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Immediate family dependants</span>
+</div>
+<!-- Education -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-on-surface" for="input-education">Education Attainment</label>
+<div class="relative bg-surface-container-low rounded-lg">
+<select class="w-full h-10 px-space-md pr-8 rounded-lg bg-transparent border-0 outline-none text-on-surface font-body-md appearance-none focus:bg-surface-container-high transition-colors" id="input-education" name="education">
+<option selected="" value="Graduate">Graduate</option>
+<option value="Not Graduate">Not Graduate</option>
+</select>
+<span class="material-symbols-outlined pointer-events-none absolute right-2.5 top-2.5 text-[20px] text-on-surface-variant">expand_more</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Accredited tertiary degree status</span>
+</div>
+<!-- Employment -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-on-surface" for="input-employment">Employment Classification</label>
+<div class="relative bg-surface-container-low rounded-lg">
+<select class="w-full h-10 px-space-md pr-8 rounded-lg bg-transparent border-0 outline-none text-on-surface font-body-md appearance-none focus:bg-surface-container-high transition-colors" id="input-employment" name="employment">
+<option value="Salaried">Salaried Professional</option>
+<option selected="" value="Self-employed">Self-employed / Principal</option>
+</select>
+<span class="material-symbols-outlined pointer-events-none absolute right-2.5 top-2.5 text-[20px] text-on-surface-variant">expand_more</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Primary income generation mode</span>
+</div>
+</div>
+</div>
+<!-- Section B: Financials & Loan -->
+<div class="bg-surface-container-lowest rounded-xl p-space-xl shadow-sm flex flex-col gap-space-lg">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-md">
+<span class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center font-code-sm text-label-md text-primary font-bold">02</span>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold">Financial &amp; Loan Specifics</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Income metrics and requested structural terms</p>
+</div>
+</div>
+<span class="inline-flex items-center gap-space-xxs text-label-sm font-label-sm text-on-tertiary-container bg-tertiary-fixed-dim/20 px-space-sm py-0.5 rounded-full font-code-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-container"></span>
+              LTV Engine Linked
+            </span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<!-- Annual Income -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface" for="input-income">Annual Income</label>
+<span class="text-label-sm font-code-sm text-on-surface-variant">USD ($)</span>
+</div>
+<div class="relative bg-surface-container-low rounded-lg flex items-center px-space-md focus-within:bg-surface-container-high transition-colors">
+<span class="font-code-sm text-body-md text-on-surface-variant select-none">$</span>
+<input class="w-full h-10 px-space-xs bg-transparent border-0 outline-none text-right font-code-sm text-body-md text-on-surface font-medium tabular-nums" id="input-income" name="annual_income" placeholder="e.g. 7,500,000" type="text" value="7,500,000"/>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Gross declared annual taxable income</span>
+</div>
+<!-- Loan Amount -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface" for="input-loan-amount">Loan Amount</label>
+<span class="text-label-sm font-code-sm text-on-surface-variant">Principal</span>
+</div>
+<div class="relative bg-surface-container-low rounded-lg flex items-center px-space-md focus-within:bg-surface-container-high transition-colors">
+<span class="font-code-sm text-body-md text-on-surface-variant select-none">$</span>
+<input class="w-full h-10 px-space-xs bg-transparent border-0 outline-none text-right font-code-sm text-body-md text-on-surface font-medium tabular-nums" id="input-loan-amount" name="loan_amount" placeholder="e.g. 18,000,000" type="text" value="18,000,000"/>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Requested principal loan value</span>
+</div>
+<!-- Loan Term Slider + Number -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface" for="input-loan-term">Loan Term (Years)</label>
+<span class="font-code-sm text-label-md text-secondary font-bold" id="term-display">10 Years</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-space-md flex flex-col justify-center gap-space-xs h-10">
+<input class="w-full accent-primary h-1.5 bg-surface-container rounded-lg cursor-pointer" id="input-loan-term" max="30" min="1" name="loan_term" type="range" value="10"/>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>1 Yr</span>
+<span>15 Yrs</span>
+<span>30 Yrs</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Section C: Credit & Asset Portfolio -->
+<div class="bg-surface-container-lowest rounded-xl p-space-xl shadow-sm flex flex-col gap-space-lg">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-md">
+<span class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center font-code-sm text-label-md text-primary font-bold">03</span>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold">Credit Score &amp; Asset Portfolio</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Bureau scores and collateral valuation weights</p>
+</div>
+</div>
+<span class="inline-flex items-center gap-space-xxs text-label-sm font-label-sm text-on-secondary-container bg-secondary-fixed/50 px-space-sm py-0.5 rounded-full font-code-sm">
+              Weight: 42.5%
+            </span>
+</div>
+<!-- Credit Score Detailed Row -->
+<div class="bg-surface-container-low rounded-xl p-space-lg flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[20px] text-secondary">speed</span>
+<div>
+<span class="font-label-md text-label-md text-on-surface">CIBIL / Equifax Composite Score</span>
+<span class="block font-body-sm text-body-sm text-on-surface-variant">Standard Bureau rating scale (300 - 900)</span>
+</div>
+</div>
+<div class="flex items-center gap-space-md self-end sm:self-auto">
+<div class="px-space-md py-1 rounded-full text-label-sm font-label-sm font-code-sm bg-tertiary-fixed-dim/30 text-on-tertiary-container flex items-center gap-1.5 transition-colors" id="cibil-badge">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container"></span>
+<span id="cibil-tier-label">Prime Excellent</span>
+</div>
+<div class="w-20 bg-surface-container-lowest rounded-lg px-2 py-1 shadow-sm text-right">
+<input class="w-full text-right bg-transparent border-0 outline-none font-code-sm text-headline-md text-primary font-bold tabular-nums" id="cibil-numeric" max="900" min="300" type="number" value="754"/>
+</div>
+</div>
+</div>
+<!-- Slider + Gradient Multi-Segment Track -->
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<input class="w-full accent-secondary h-2 rounded-lg cursor-pointer bg-surface-container" id="cibil-slider" max="900" min="300" type="range" value="754"/>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant px-1 font-code-sm">
+<span class="text-error">300 (Subprime)</span>
+<span class="text-secondary">650 (Near Prime)</span>
+<span class="text-on-tertiary-container font-semibold">750+ (Prime)</span>
+<span>900 (Sovereign)</span>
+</div>
+</div>
+</div>
+<!-- Asset Inputs Grid (4 Columns) -->
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface">Declared Collateral &amp; Liquidity Portfolio</span>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Residential Assets -->
+<div class="flex flex-col gap-space-xxs bg-surface-container-low p-space-md rounded-lg">
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">Residential Assets</span>
+<div class="relative flex items-center">
+<span class="font-code-sm text-body-sm text-on-surface-variant select-none">$</span>
+<input class="w-full bg-transparent border-0 outline-none text-right font-code-sm text-body-md text-on-surface font-semibold tabular-nums focus:bg-surface-container-lowest rounded px-1" id="asset-residential" name="residential_assets" type="text" value="4,500,000"/>
+</div>
+<span class="font-body-sm text-[10px] text-on-surface-variant">Primary &amp; secondary deeds</span>
+</div>
+<!-- Commercial Assets -->
+<div class="flex flex-col gap-space-xxs bg-surface-container-low p-space-md rounded-lg">
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">Commercial Assets</span>
+<div class="relative flex items-center">
+<span class="font-code-sm text-body-sm text-on-surface-variant select-none">$</span>
+<input class="w-full bg-transparent border-0 outline-none text-right font-code-sm text-body-md text-on-surface font-semibold tabular-nums focus:bg-surface-container-lowest rounded px-1" id="asset-commercial" name="commercial_assets" type="text" value="2,100,000"/>
+</div>
+<span class="font-body-sm text-[10px] text-on-surface-variant">Office &amp; retail equity</span>
+</div>
+<!-- Luxury Assets -->
+<div class="flex flex-col gap-space-xxs bg-surface-container-low p-space-md rounded-lg">
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">Luxury Assets</span>
+<div class="relative flex items-center">
+<span class="font-code-sm text-body-sm text-on-surface-variant select-none">$</span>
+<input class="w-full bg-transparent border-0 outline-none text-right font-code-sm text-body-md text-on-surface font-semibold tabular-nums focus:bg-surface-container-lowest rounded px-1" id="asset-luxury" name="luxury_assets" type="text" value="8,500,000"/>
+</div>
+<span class="font-body-sm text-[10px] text-on-surface-variant">Vehicles, jewelry, art</span>
+</div>
+<!-- Bank & Liquid Assets -->
+<div class="flex flex-col gap-space-xxs bg-surface-container-low p-space-md rounded-lg">
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">Bank / Liquid Value</span>
+<div class="relative flex items-center">
+<span class="font-code-sm text-body-sm text-on-surface-variant select-none">$</span>
+<input class="w-full bg-transparent border-0 outline-none text-right font-code-sm text-body-md text-on-surface font-semibold tabular-nums focus:bg-surface-container-lowest rounded px-1" id="asset-bank" name="bank_assets" type="text" value="3,800,000"/>
+</div>
+<span class="font-body-sm text-[10px] text-on-surface-variant">Cash, T-bills &amp; deposits</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Unified Sticky Action Bar at Bottom of Form -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<button class="w-full sm:w-auto inline-flex items-center justify-center gap-space-xs px-space-lg py-space-sm rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors font-label-md text-label-md" id="btn-reset-form" type="button">
+<span class="material-symbols-outlined text-[18px]">restart_alt</span>
+<span>Reset Form</span>
+</button>
+<div class="flex items-center gap-space-md w-full sm:w-auto">
+<button class="hidden sm:inline-flex items-center gap-space-xs px-space-md py-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" id="btn-sample-applicant-footer" type="button">
+<span class="material-symbols-outlined text-[16px] text-secondary">auto_fix_high</span>
+<span>Sample Data</span>
+</button>
+<button class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-space-sm px-8 py-3 rounded-lg bg-primary-container text-on-primary hover:bg-primary transition-all duration-200 font-label-md text-label-md font-semibold shadow-md active:scale-[0.99]" id="btn-analyse" type="submit">
+<span class="material-symbols-outlined text-[20px] text-tertiary-fixed">memory</span>
+<span>Analyse Application</span>
+</button>
+</div>
+</div>
+</form>
+<!-- Contextual Sidebar: ML Consensus Architecture -->
+<aside class="lg:col-span-4 flex flex-col gap-space-lg">
+<!-- Ensemble Architecture Card -->
+<div class="bg-primary-container text-on-primary rounded-xl p-space-xl shadow-md flex flex-col gap-space-lg relative overflow-hidden">
+<div class="absolute -right-8 -bottom-8 w-40 h-40 rounded-full bg-secondary/10 pointer-events-none"></div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary-fixed text-[20px]">account_tree</span>
+<span class="font-label-md text-label-md tracking-wider uppercase text-on-primary-container">Ensemble Protocol</span>
+</div>
+<span class="font-code-sm text-label-sm text-tertiary-fixed bg-tertiary-container px-2 py-0.5 rounded">v3.2 Quorum</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<span class="font-headline-md text-headline-md font-semibold text-on-primary">Real-time Inference</span>
+<p class="font-body-sm text-body-sm text-on-primary-container leading-relaxed">
+              Ensemble Consensus Notice: The application will be passed through all 5 algorithms concurrently (RF, DT, NB, KNN, LR). Final decision requires consensus voting.
+            </p>
+</div>
+<!-- Model Chips Pipeline Indicator -->
+<div class="flex flex-col gap-space-xs bg-primary/40 p-space-md rounded-lg">
+<span class="font-label-sm text-label-sm text-on-primary-container uppercase tracking-wider font-code-sm">Active Classifiers</span>
+<div class="grid grid-cols-5 gap-1.5 pt-space-xs">
+<div class="flex flex-col items-center p-1.5 rounded bg-primary-container text-center">
+<span class="font-code-sm text-label-sm font-bold text-on-primary">RF</span>
+<span class="text-[9px] text-tertiary-fixed font-code-sm">96.8%</span>
+</div>
+<div class="flex flex-col items-center p-1.5 rounded bg-primary-container text-center">
+<span class="font-code-sm text-label-sm font-bold text-on-primary">DT</span>
+<span class="text-[9px] text-tertiary-fixed font-code-sm">94.1%</span>
+</div>
+<div class="flex flex-col items-center p-1.5 rounded bg-primary-container text-center">
+<span class="font-code-sm text-label-sm font-bold text-on-primary">NB</span>
+<span class="text-[9px] text-tertiary-fixed font-code-sm">89.4%</span>
+</div>
+<div class="flex flex-col items-center p-1.5 rounded bg-primary-container text-center">
+<span class="font-code-sm text-label-sm font-bold text-on-primary">KNN</span>
+<span class="text-[9px] text-tertiary-fixed font-code-sm">91.2%</span>
+</div>
+<div class="flex flex-col items-center p-1.5 rounded bg-primary-container text-center">
+<span class="font-code-sm text-label-sm font-bold text-on-primary">LR</span>
+<span class="text-[9px] text-tertiary-fixed font-code-sm">90.5%</span>
+</div>
+</div>
+</div>
+<!-- Mini Inline Metric Summary -->
+<div class="flex items-center justify-between pt-space-xs font-code-sm text-body-sm text-on-primary-container">
+<span>Confidence Threshold</span>
+<span class="text-on-primary font-bold">≥ 80.0%</span>
+</div>
+</div>
+<!-- Calculated Live Ratio Summary -->
+<div class="bg-surface-container-lowest rounded-xl p-space-xl shadow-sm flex flex-col gap-space-lg">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface uppercase tracking-wider">Dynamic Risk Metrics</span>
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">analytics</span>
+</div>
+<div class="flex flex-col gap-space-md">
+<!-- Debt to Income / Asset coverage gauge -->
+<div class="flex flex-col gap-space-xxs">
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Asset Coverage Ratio</span>
+<span class="font-code-sm font-semibold text-secondary" id="coverage-ratio-val">1.05x</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-secondary transition-all duration-300" id="coverage-progress" style="width: 72%;"></div>
+</div>
+<span class="text-[11px] text-on-surface-variant">Total Assets / Requested Loan</span>
+</div>
+<!-- Income vs Loan Installment -->
+<div class="flex flex-col gap-space-xxs">
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Est. Annual Debt Service</span>
+<span class="font-code-sm font-semibold text-on-surface" id="est-service-val">$2,442,000/yr</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-tertiary-fixed-dim transition-all duration-300" id="service-progress" style="width: 32%;"></div>
+</div>
+<span class="text-[11px] text-on-surface-variant">32.5% of declared taxable earnings</span>
+</div>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-low flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-[18px] text-secondary shrink-0 mt-0.5">verified_user</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-snug">
+              Instant credit screening complies with Fair Credit Lending Act (FCRA) and model bias verification parameters.
+            </p>
+</div>
+</div>
+<!-- Audit Context & Model Reference -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex items-center justify-between text-on-surface-variant font-code-sm text-label-sm">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></span>
+<span>Batch Engine #4492</span>
+</div>
+<span>Weights: Frozen v3</span>
+</div>
+</aside>
+</div>
+</div>
+<script>
+    (function initLoanPredictionForm() {
+      const form = document.getElementById('prediction-form');
+      const dependentsInput = document.getElementById('input-dependents');
+      const depDec = document.getElementById('dep-dec');
+      const depInc = document.getElementById('dep-inc');
+      
+      const termSlider = document.getElementById('input-loan-term');
+      const termDisplay = document.getElementById('term-display');
+      
+      const cibilSlider = document.getElementById('cibil-slider');
+      const cibilNumeric = document.getElementById('cibil-numeric');
+      const cibilTierLabel = document.getElementById('cibil-tier-label');
+      const cibilBadge = document.getElementById('cibil-badge');
+
+      const incomeInput = document.getElementById('input-income');
+      const loanAmountInput = document.getElementById('input-loan-amount');
+      const resAsset = document.getElementById('asset-residential');
+      const comAsset = document.getElementById('asset-commercial');
+      const luxAsset = document.getElementById('asset-luxury');
+      const bankAsset = document.getElementById('asset-bank');
+
+      const sampleButtons = [
+        document.getElementById('btn-sample-applicant'),
+        document.getElementById('btn-sample-applicant-footer')
+      ];
+      const resetBtn = document.getElementById('btn-reset-form');
+
+      // Helper: parse string currency to number
+      function parseNum(str) {
+        if (!str) return 0;
+        return parseFloat(String(str).replace(/[^0-9.-]+/g, '')) || 0;
+      }
+
+      function formatNum(n) {
+        return Math.round(n).toLocaleString('en-US');
+      }
+
+      // Stepper logic
+      if (depDec && depInc && dependentsInput) {
+        depDec.addEventListener('click', () => {
+          let v = parseInt(dependentsInput.value) || 0;
+          if (v > 0) dependentsInput.value = v - 1;
+        });
+        depInc.addEventListener('click', () => {
+          let v = parseInt(dependentsInput.value) || 0;
+          if (v < 10) dependentsInput.value = v + 1;
+        });
+      }
+
+      // Loan Term slider
+      if (termSlider && termDisplay) {
+        termSlider.addEventListener('input', (e) => {
+          termDisplay.textContent = e.target.value + ' Years';
+          recalcMetrics();
+        });
+      }
+
+      // CIBIL dynamic status sync
+      function updateCibilUI(score) {
+        const val = parseInt(score) || 300;
+        if (cibilSlider.value != val) cibilSlider.value = val;
+        if (cibilNumeric.value != val) cibilNumeric.value = val;
+
+        if (val >= 750) {
+          cibilTierLabel.textContent = 'Prime Excellent';
+          cibilBadge.className = 'px-space-md py-1 rounded-full text-label-sm font-label-sm font-code-sm bg-tertiary-fixed-dim/30 text-on-tertiary-container flex items-center gap-1.5 transition-colors';
+        } else if (val >= 650) {
+          cibilTierLabel.textContent = 'Near Prime / Fair';
+          cibilBadge.className = 'px-space-md py-1 rounded-full text-label-sm font-label-sm font-code-sm bg-secondary-fixed/40 text-secondary flex items-center gap-1.5 transition-colors';
+        } else {
+          cibilTierLabel.textContent = 'Subprime / High Risk';
+          cibilBadge.className = 'px-space-md py-1 rounded-full text-label-sm font-label-sm font-code-sm bg-error-container text-on-error-container flex items-center gap-1.5 transition-colors';
+        }
+      }
+
+      if (cibilSlider && cibilNumeric) {
+        cibilSlider.addEventListener('input', (e) => updateCibilUI(e.target.value));
+        cibilNumeric.addEventListener('input', (e) => updateCibilUI(e.target.value));
+      }
+
+      // Live risk ratio calculations
+      function recalcMetrics() {
+        const loan = parseNum(loanAmountInput.value) || 1;
+        const totalAssets = parseNum(resAsset.value) + parseNum(comAsset.value) + parseNum(luxAsset.value) + parseNum(bankAsset.value);
+        const ratio = totalAssets / loan;
+        
+        const covVal = document.getElementById('coverage-ratio-val');
+        const covProgress = document.getElementById('coverage-progress');
+        if (covVal && covProgress) {
+          covVal.textContent = ratio.toFixed(2) + 'x';
+          const pct = Math.min(100, Math.max(10, Math.round(ratio * 50)));
+          covProgress.style.width = pct + '%';
+        }
+      }
+
+      // Input currency format listeners
+      [incomeInput, loanAmountInput, resAsset, comAsset, luxAsset, bankAsset].forEach(inp => {
+        if (!inp) return;
+        inp.addEventListener('blur', () => {
+          const val = parseNum(inp.value);
+          inp.value = formatNum(val);
+          recalcMetrics();
+        });
+      });
+
+      // Sample applicant data populator
+      sampleButtons.forEach(btn => {
+        if (!btn) return;
+        btn.addEventListener('click', () => {
+          dependentsInput.value = '1';
+          document.getElementById('input-education').value = 'Graduate';
+          document.getElementById('input-employment').value = 'Salaried';
+          incomeInput.value = '9,200,000';
+          loanAmountInput.value = '14,500,000';
+          termSlider.value = '12';
+          termDisplay.textContent = '12 Years';
+          updateCibilUI(785);
+          resAsset.value = '6,200,000';
+          comAsset.value = '3,500,000';
+          luxAsset.value = '4,100,000';
+          bankAsset.value = '5,400,000';
+          recalcMetrics();
+        });
+      });
+
+      // Reset Form
+      if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+          dependentsInput.value = '0';
+          document.getElementById('input-education').value = 'Graduate';
+          document.getElementById('input-employment').value = 'Salaried';
+          incomeInput.value = '0';
+          loanAmountInput.value = '0';
+          termSlider.value = '5';
+          termDisplay.textContent = '5 Years';
+          updateCibilUI(600);
+          resAsset.value = '0';
+          comAsset.value = '0';
+          luxAsset.value = '0';
+          bankAsset.value = '0';
+          recalcMetrics();
+        });
+      }
+
+      recalcMetrics();
+    })();
+  </script>
+</div></main></div></body></html>

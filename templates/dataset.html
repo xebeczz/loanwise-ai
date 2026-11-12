@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% block title %}Dataset Management - LoanWise AI{% endblock %}
+{% block content %}
+<h1 class="font-display font-bold text-3xl text-navy">Dataset Management</h1>
+<p class="text-muted mt-1 mb-6">Upload your historical loan application dataset to analyse loan approval patterns and train machine learning models.</p>
+
+{% if active %}
+<div class="mb-4 px-4 py-3 rounded-xl bg-teal-50 border border-teal-200 text-sm text-teal-800">
+  Active dataset: <b>{{ active.original_filename }}</b> &middot; {{ "{:,}".format(active.total_rows) }} rows &middot; trained {{ active.trained_at.strftime('%d %b %Y, %I:%M %p') if active.trained_at else '' }}.
+  Uploading a new file and training it will replace this dataset (your prediction history is kept).
+</div>
+{% endif %}
+
+<!-- Upload area -->
+<div class="bg-white rounded-2xl border border-slate-200 p-6 mb-6">
+  <h2 class="font-display font-bold text-lg text-navy mb-4">Upload Dataset</h2>
+  <form id="uploadForm" method="post" action="{{ url_for('dataset.upload') }}" enctype="multipart/form-data">
+    <div id="dropZone" class="border-2 border-dashed border-[#CBD5E1] rounded-2xl p-10 text-center cursor-pointer hover:border-royal hover:bg-surface/50 transition-colors">
+      <span class="material-symbols-outlined text-5xl text-royal">upload_file</span>
+      <p class="font-semibold text-navy mt-3">Drag and drop your CSV file here</p>
+      <p class="text-sm text-muted mt-1">or</p>
+      <label for="csv_file" class="inline-block mt-3 px-5 py-2.5 rounded-xl bg-royal text-white text-sm font-semibold cursor-pointer hover:bg-[#274b8a]">Browse CSV File</label>
+      <input id="csv_file" name="csv_file" type="file" accept=".csv" class="hidden" required/>
+      <p id="fileInfo" class="text-sm text-muted mt-3">CSV only &middot; maximum 20 MB</p>
+    </div>
+    <div class="flex flex-wrap gap-3 mt-5">
+      <button type="submit" class="px-6 py-3 rounded-xl bg-navy text-white font-semibold hover:bg-[#0b1c32]">Upload</button>
+      <button type="button" id="removeFileBtn" class="px-6 py-3 rounded-xl border border-slate-300 font-semibold text-slate-600 hover:bg-slate-50">Remove Selected File</button>
+    </div>
+  </form>
+  <p class="text-xs text-muted mt-4">Required columns: loan_id, no_of_dependents, education, self_employed, income_annum, loan_amount, loan_term, cibil_score, residential_assets_value, commercial_assets_value, luxury_assets_value, bank_asset_value, loan_status. The file is only validated and stored on upload - training starts only when you click "Process Dataset &amp; Train Models" below.</p>
+</div>
+
+{% if dataset %}
+<!-- Summary cards - calculated from the actual uploaded CSV -->
+<div class="grid grid-cols-2 lg:grid-cols-6 gap-4 mb-6">
+  <div class="bg-white rounded-2xl border p-5"><p class="text-xs font-semibold uppercase text-muted">Total Rows</p><p class="font-display font-extrabold text-2xl text-navy mt-1">{{ "{:,}".format(summary.total_rows) }}</p></div>
+  <div class="bg-white rounded-2xl border p-5"><p class="text-xs font-semibold uppercase text-muted">Total Columns</p><p class="font-display font-extrabold text-2xl text-navy mt-1">{{ summary.total_columns }}</p></div>
+  <div class="bg-white rounded-2xl border p-5"><p class="text-xs font-semibold uppercase text-muted">Missing Values</p><p class="font-display font-extrabold text-2xl text-navy mt-1">{{ summary.missing_values }}</p></div>
+  <div class="bg-white rounded-2xl border p-5"><p class="text-xs font-semibold uppercase text-muted">Duplicate Rows</p><p class="font-display font-extrabold text-2xl text-navy mt-1">{{ "{:,}".format(summary.duplicate_rows) }}</p></div>
+  <div class="bg-white rounded-2xl border p-5"><p class="text-xs font-semibold uppercase text-muted">Approved</p><p class="font-display font-extrabold text-2xl text-teal-600 mt-1">{{ "{:,}".format(summary.approved) }}</p></div>
+  <div class="bg-white rounded-2xl border p-5"><p class="text-xs font-semibold uppercase text-muted">Rejected</p><p class="font-display font-extrabold text-2xl text-red-500 mt-1">{{ "{:,}".format(summary.rejected) }}</p></div>
+</div>
+
+<!-- Process & train -->
+<div class="bg-white rounded-2xl border border-slate-200 p-6 mb-6">
+  <h2 class="font-display font-bold text-lg text-navy">Process Dataset &amp; Train Models</h2>
+  <p class="text-sm text-muted mt-1 mb-4">Trains Decision Tree, Random Forest, Naive Bayes, KNN and Logistic Regression on a 70/30 split (random_state=42, stratified). Status: <b>{{ dataset.status }}</b>{% if dataset.train_count %} &middot; Train {{ "{:,}".format(dataset.train_count) }} / Test {{ "{:,}".format(dataset.test_count) }}{% endif %}</p>
+  {% if dataset.error_message %}<p class="text-sm text-red-600 mb-3">Last error: {{ dataset.error_message }}</p>{% endif %}
+  <form method="post" action="{{ url_for('dataset.process', dataset_id=dataset.id) }}">
+    {% if active and active.id != dataset.id %}
+    <label class="flex items-start gap-2 text-sm mb-4"><input type="checkbox" name="confirm_replace" class="mt-0.5 accent-[#315EAB]"/> <span>I understand this will replace the active dataset <b>{{ active.original_filename }}</b>. Previous predictions will be kept.</span></label>
+    {% endif %}
+    <button type="submit" class="px-6 py-3 rounded-xl bg-teal2 text-white font-semibold hover:bg-[#1da294]">Process Dataset &amp; Train Models</button>
+    {% if dataset.status == 'trained' and dataset.is_active %}<span class="ml-3 text-sm font-semibold text-teal-600">Trained and active</span>{% endif %}
+  </form>
+</div>
+
+<!-- Preview with search + pagination -->
+<div class="bg-white rounded-2xl border border-slate-200 p-6 mb-6">
+  <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+    <h2 class="font-display font-bold text-lg text-navy">Dataset Preview</h2>
+    <form method="get" class="flex gap-2">
+      <input name="q" value="{{ search }}" placeholder="Search rows..." class="px-3 py-2 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-royal"/>
+      <button class="px-4 py-2 rounded-xl bg-navy text-white text-sm font-semibold">Search</button>
+    </form>
+  </div>
+  <p class="text-xs text-muted mb-3">{{ dataset.original_filename }} &middot; showing {{ rows|length }} of {{ "{:,}".format(total_preview) }} rows &middot; page {{ page }} of {{ pages }}</p>
+  <div class="overflow-x-auto">
+  <table class="w-full text-sm">
+    <thead><tr class="text-left text-muted border-b">{% for c in columns %}<th class="py-2 pr-3 whitespace-nowrap">{{ c }}</th>{% endfor %}</tr></thead>
+    <tbody>
+    {% for r in rows %}
+    <tr class="border-b last:border-0">{% for c in columns %}<td class="py-2 pr-3 whitespace-nowrap">{{ r[c] }}</td>{% endfor %}</tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  </div>
+  <div class="flex gap-2 mt-4">
+    {% if page > 1 %}<a href="{{ url_for('dataset.dataset_page', page=page-1, q=search) }}" class="px-4 py-2 rounded-xl border text-sm font-semibold">&larr; Previous</a>{% endif %}
+    {% if page < pages %}<a href="{{ url_for('dataset.dataset_page', page=page+1, q=search) }}" class="px-4 py-2 rounded-xl bg-navy text-white text-sm font-semibold">Next &rarr;</a>{% endif %}
+  </div>
+</div>
+{% else %}
+<div class="bg-white rounded-2xl border border-slate-200 p-8 text-center text-muted">
+  <p>No dataset uploaded yet. Upload a CSV above to see its summary and preview here.</p>
+</div>
+{% endif %}
+
+<!-- Dataset versions -->
+{% if versions %}
+<div class="bg-white rounded-2xl border border-slate-200 p-6">
+  <h2 class="font-display font-bold text-lg text-navy mb-3">Dataset Versions</h2>
+  <table class="w-full text-sm">
+    <thead><tr class="text-left text-muted border-b"><th class="py-2 pr-3">File</th><th class="py-2 pr-3">Rows</th><th class="py-2 pr-3">Status</th><th class="py-2 pr-3">Active</th><th class="py-2">Uploaded</th></tr></thead>
+    <tbody>
+    {% for v in versions %}
+    <tr class="border-b last:border-0"><td class="py-2 pr-3 font-medium">{{ v.original_filename }}</td><td class="py-2 pr-3">{{ "{:,}".format(v.total_rows) if v.total_rows else '-' }}</td><td class="py-2 pr-3">{{ v.status }}</td><td class="py-2 pr-3">{% if v.is_active %}<span class="px-2 py-0.5 rounded-full bg-teal-100 text-teal-700 text-xs font-semibold">Active</span>{% else %}-{% endif %}</td><td class="py-2">{{ v.created_at.strftime('%d %b %Y, %I:%M %p') }}</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %}
+{% endblock %}
+{% block scripts %}
+<script>
+const dz = document.getElementById('dropZone'), input = document.getElementById('csv_file'), info = document.getElementById('fileInfo');
+function showFile(f){ if(!f) return; info.textContent = f.name + ' (' + (f.size/1024).toFixed(1) + ' KB)'; }
+input.addEventListener('change', () => showFile(input.files[0]));
+dz.addEventListener('click', e => { if(e.target.tagName !== 'BUTTON' && e.target.tagName !== 'LABEL') input.click(); });
+['dragover','dragenter'].forEach(ev => dz.addEventListener(ev, e => { e.preventDefault(); dz.classList.add('border-royal','bg-surface/50'); }));
+['dragleave','drop'].forEach(ev => dz.addEventListener(ev, e => { e.preventDefault(); dz.classList.remove('border-royal','bg-surface/50'); }));
+dz.addEventListener('drop', e => { const f = e.dataTransfer.files[0]; if(f){ const dt = new DataTransfer(); dt.items.add(f); input.files = dt.files; showFile(f); } });
+document.getElementById('removeFileBtn').addEventListener('click', () => { input.value=''; info.textContent='CSV only · maximum 20 MB'; });
+</script>
+{% endblock %}

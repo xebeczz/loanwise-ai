@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Manrope:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-secondary-fixed-variant":"#0b4490","on-primary-container":"#7c8ba6","surface-bright":"#f8f9ff","inverse-on-surface":"#eaf1ff","background":"#f8f9ff","primary-fixed-dim":"#b7c7e4","tertiary-container":"#002924","on-primary":"#ffffff","secondary-fixed":"#d8e2ff","primary":"#000e23","on-secondary-container":"#003f8a","error":"#ba1a1a","tertiary-fixed":"#76f8e3","secondary":"#2f5daa","primary-container":"#14243a","inverse-primary":"#b7c7e4","surface-container-highest":"#d4e4fc","surface":"#f8f9ff","secondary-fixed-dim":"#adc6ff","tertiary-fixed-dim":"#56dbc7","surface-tint":"#505f78","on-tertiary":"#ffffff","error-container":"#ffdad6","outline":"#75777d","surface-container-high":"#dce9ff","on-primary-fixed":"#0b1c32","on-surface-variant":"#44474d","outline-variant":"#c5c6cd","secondary-container":"#85adff","surface-container-lowest":"#ffffff","surface-container":"#e5eeff","on-tertiary-container":"#009c8b","on-error-container":"#93000a","surface-variant":"#d4e4fc","inverse-surface":"#223144","surface-container-low":"#eff4ff","on-background":"#0d1c2e","on-primary-fixed-variant":"#38475f","on-tertiary-fixed-variant":"#005047","on-secondary-fixed":"#001a41","on-secondary":"#ffffff","primary-fixed":"#d4e3ff","on-error":"#ffffff","surface-dim":"#ccdbf4","tertiary":"#00110e","on-tertiary-fixed":"#00201c","on-surface":"#0d1c2e"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"space-3xl":"3rem","space-xs":"0.25rem",gutter:"1.5rem","gutter-mobile":"0.75rem",margin:"2rem","space-2xl":"2rem","margin-mobile":"1rem","space-lg":"1rem","space-xl":"1.5rem","space-md":"0.75rem","space-xxs":"0.125rem","space-sm":"0.5rem"},fontFamily:{"headline-lg":["Manrope"],"body-sm":["Inter"],"body-lg":["Inter"],"label-md":["Inter"],"display-lg":["Manrope"],"label-sm":["Inter"],"headline-xl":["Manrope"],"display-lg-mobile":["Manrope"],"code-sm":["JetBrains Mono"],"headline-md":["Manrope"],"body-md":["Inter"]},fontSize:{"headline-lg":["22px",{lineHeight:"30px",letterSpacing:"-0.01em",fontWeight:"600"}],"body-sm":["12px",{lineHeight:"16px",fontWeight:"400"}],"body-lg":["16px",{lineHeight:"24px",fontWeight:"400"}],"label-md":["13px",{lineHeight:"18px",letterSpacing:"0.01em",fontWeight:"600"}],"display-lg":["36px",{lineHeight:"44px",letterSpacing:"-0.02em",fontWeight:"700"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.03em",fontWeight:"600"}],"headline-xl":["28px",{lineHeight:"36px",letterSpacing:"-0.015em",fontWeight:"600"}],"display-lg-mobile":["28px",{lineHeight:"36px",letterSpacing:"-0.015em",fontWeight:"700"}],"code-sm":["12px",{lineHeight:"16px",fontWeight:"500"}],"headline-md":["18px",{lineHeight:"26px",letterSpacing:"-0.005em",fontWeight:"600"}],"body-md":["14px",{lineHeight:"20px",fontWeight:"400"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-64 bg-primary-container z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-16 px-space-xl flex items-center gap-space-md"><img alt="LoanWise AI Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrAqikGdPADuth3eHHoHQ2xQicyz21axIn4WetgdFqv6GKl0tK3JDGx9GMeB1npl5fB-ozm-fSkSoVdooV-4fONFmjRepL5JmpeKkAIyUutQgn89T3heYJ7RGbNL-u9GJmxAuvPHFBvS7YjCYnfe8Cn-8rBVbd5_ZiVCRkO2rGX32vMt3I3J7b5p042WGK-YSEQXMrXOuRtaxAbXodjgzgRzYlonGddtTXRnklsK63A"/><div class="flex flex-col"><span class="font-headline-md text-headline-md text-on-primary tracking-tight">LoanWise AI</span><span class="font-label-sm text-label-sm text-on-primary-container uppercase tracking-wider">Risk Engine v3.2</span></div></div><nav class="px-space-md py-space-lg flex flex-col gap-space-xxs" data-active-classes="bg-tertiary-container text-on-tertiary-container font-label-md"><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg font-label-md text-label-md text-on-primary-container hover:bg-primary hover:text-on-primary transition-colors" data-path="dashboard" href="#dashboard"><span class="material-symbols-outlined text-[20px]">grid_view</span><span>Dashboard</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg font-label-md text-label-md text-on-primary-container hover:bg-primary hover:text-on-primary transition-colors" data-path="dataset-management" href="#dataset"><span class="material-symbols-outlined text-[20px]">database</span><span>Dataset Management</span></a><a aria-current="page" class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg transition-colors bg-tertiary-container text-on-tertiary-container font-label-md" data-path="model-performance" href="#models"><span class="material-symbols-outlined text-[20px]">query_stats</span><span>Model Performance</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg font-label-md text-label-md text-on-primary-container hover:bg-primary hover:text-on-primary transition-colors" data-path="new-prediction" href="#predict"><span class="material-symbols-outlined text-[20px]">neurology</span><span>New Prediction</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg font-label-md text-label-md text-on-primary-container hover:bg-primary hover:text-on-primary transition-colors" data-path="prediction-history" href="#history"><span class="material-symbols-outlined text-[20px]">history</span><span>Prediction History</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg font-label-md text-label-md text-on-primary-container hover:bg-primary hover:text-on-primary transition-colors" data-path="settings" href="#settings"><span class="material-symbols-outlined text-[20px]">settings</span><span>Settings</span></a></nav></div><div class="p-space-md flex flex-col gap-space-sm bg-primary/40"><div class="flex items-center gap-space-md p-space-sm rounded-lg"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBILVmDYCeIPqneq_bf21VUAXbbM9OiuuehxsG8V_QMXA4r3cwPYONJZ398UHLxWrSlK3e7SOXpB5PyiUkbBc1Df46QKkoOu3kdodCLl039QDwR6EORzdvRHSW1FZtzec0NXgBkWggyjM5ChJHl0II5xuMaaMjLiT94eyo_b4tm1Sn6LjTQKUZvGHTO-3Uz2p6xL2yr9tA9zRTOiM1uCpB64dBFe1xJqgPFeJvJrUY"/><div class="flex flex-col min-w-0 flex-1"><span class="font-label-md text-label-md text-on-primary truncate">Alex Morgan</span><span class="font-label-sm text-label-sm text-on-primary-container truncate">Senior Credit Analyst</span></div></div><a class="flex items-center justify-between px-space-md py-space-xs text-on-primary-container hover:text-on-primary font-label-sm text-label-sm transition-colors" data-path="login" href="#login"><span>Sign Out</span><span class="material-symbols-outlined text-[16px]">logout</span></a></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-sm"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Enterprise ML Underwriting</span><span class="text-outline-variant font-body-sm">/</span><span class="font-label-md text-label-md text-on-surface">Decision Core</span></div><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-xs px-space-sm py-space-xxs rounded-full bg-tertiary-fixed-dim/20 text-on-tertiary-container"><span class="w-2 h-2 rounded-full bg-on-tertiary-container"></span><span class="font-label-sm text-label-sm font-code-sm">5 Models Online</span></div><button class="flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">search</span><span class="font-label-sm text-label-sm">Quick Search (⌘K)</span></button><button class="relative p-space-xs text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 flex items-center justify-center w-4 h-4 rounded-full bg-error text-on-error text-[10px] font-bold">2</span></button><div class="flex items-center gap-space-xs"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBILVmDYCeIPqneq_bf21VUAXbbM9OiuuehxsG8V_QMXA4r3cwPYONJZ398UHLxWrSlK3e7SOXpB5PyiUkbBc1Df46QKkoOu3kdodCLl039QDwR6EORzdvRHSW1FZtzec0NXgBkWggyjM5ChJHl0II5xuMaaMjLiT94eyo_b4tm1Sn6LjTQKUZvGHTO-3Uz2p6xL2yr9tA9zRTOiM1uCpB64dBFe1xJqgPFeJvJrUY"/></div></div></header><main class="w-full pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<div class="px-space-xl py-space-xl flex flex-col gap-space-2xl max-w-[1600px] mx-auto w-full">
+<!-- Top Action & Meta Bar -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-lg">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="font-code-sm text-code-sm text-on-surface-variant uppercase tracking-wider">Benchmark Run #8842-Production</span>
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-on-tertiary-container"></span>
+<span class="font-label-sm text-label-sm text-on-tertiary-container bg-surface-container-high px-space-xs py-space-xxs rounded-full">Validation Set (N=1,281)</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-primary font-bold tracking-tight">Model Performance Analysis</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">Comprehensive evaluation metrics and comparative benchmarks across the five trained machine learning classifiers.</p>
+</div>
+<div class="flex items-center gap-space-md shrink-0">
+<button class="flex items-center gap-space-xs px-space-md py-space-sm rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container transition-colors shadow-sm font-label-md text-label-md" type="button">
+<span class="material-symbols-outlined text-[18px]">download</span>
+<span>Export Evaluation Report</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-space-sm rounded-lg bg-primary-container text-on-primary hover:bg-secondary transition-colors shadow-sm font-label-md text-label-md" type="button">
+<span class="material-symbols-outlined text-[18px]">refresh</span>
+<span>Retrain Models</span>
+</button>
+</div>
+</div>
+<!-- Five Model Analytical Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-space-md">
+<!-- 1. Decision Tree -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between hover:shadow-md transition-all">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Tree Ensemble</span>
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">account_tree</span>
+</div>
+<span class="font-headline-md text-headline-md text-primary mt-space-xs">Decision Tree</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">max_depth=8</span>
+</div>
+<div class="mt-space-lg pt-space-md flex flex-col gap-space-sm">
+<div class="flex items-baseline justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Accuracy</span>
+<span class="font-headline-lg text-headline-lg text-primary tabular-nums font-bold">97.81%</span>
+</div>
+<div class="grid grid-cols-2 gap-space-xs pt-space-xs">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Precision</span>
+<span class="font-label-md text-label-md text-primary tabular-nums">98.1%</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Recall</span>
+<span class="font-label-md text-label-md text-primary tabular-nums">97.5%</span>
+</div>
+</div>
+<div class="mt-space-xs inline-flex items-center gap-space-xs px-space-xs py-space-xxs rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+<span>Trained &amp; Validated</span>
+</div>
+</div>
+</div>
+<!-- 2. Random Forest (Champion Model) -->
+<div class="relative bg-surface-container-lowest p-space-lg rounded-xl shadow-md flex flex-col justify-between -mt-2 lg:-mt-3 shadow-[0_8px_24px_rgba(0,41,36,0.08)] bg-gradient-to-b from-surface-container-lowest to-surface-container-low">
+<div class="absolute -top-3.5 left-4 right-4 flex justify-center">
+<span class="inline-flex items-center gap-space-xxs px-space-md py-space-xxs rounded-full bg-tertiary-container text-tertiary-fixed font-label-sm text-label-sm shadow-sm tracking-wide">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>★ Best Performing Model</span>
+</span>
+</div>
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-tertiary-container font-semibold">Bagging Ensemble</span>
+<span class="material-symbols-outlined text-[20px] text-on-tertiary-container">forest</span>
+</div>
+<span class="font-headline-md text-headline-md text-primary mt-space-xs font-bold">Random Forest</span>
+<span class="font-code-sm text-code-sm text-on-tertiary-container">n_estimators=100</span>
+</div>
+<div class="mt-space-lg pt-space-md flex flex-col gap-space-sm">
+<div class="flex items-baseline justify-between">
+<span class="font-body-sm text-body-sm text-on-tertiary-container font-medium">Accuracy</span>
+<span class="font-display-lg text-display-lg text-on-tertiary-container tabular-nums font-bold">98.36%</span>
+</div>
+<div class="grid grid-cols-2 gap-space-xs pt-space-xs">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Precision</span>
+<span class="font-label-md text-label-md text-primary tabular-nums font-semibold">98.5%</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Recall</span>
+<span class="font-label-md text-label-md text-primary tabular-nums font-semibold">98.2%</span>
+</div>
+</div>
+<div class="mt-space-xs inline-flex items-center gap-space-xs px-space-xs py-space-xxs rounded-full bg-tertiary-fixed-dim/20 text-on-tertiary-container font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-container"></span>
+<span>Active Production Core</span>
+</div>
+</div>
+</div>
+<!-- 3. Naive Bayes -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between hover:shadow-md transition-all">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Probabilistic</span>
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">calculate</span>
+</div>
+<span class="font-headline-md text-headline-md text-primary mt-space-xs">Naive Bayes</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">GaussianNB (Optimized)</span>
+</div>
+<div class="mt-space-lg pt-space-md flex flex-col gap-space-sm">
+<div class="flex items-baseline justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Accuracy</span>
+<span class="font-headline-lg text-headline-lg text-primary tabular-nums font-bold">94.54%</span>
+</div>
+<div class="grid grid-cols-2 gap-space-xs pt-space-xs">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Precision</span>
+<span class="font-label-md text-label-md text-primary tabular-nums">94.2%</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Recall</span>
+<span class="font-label-md text-label-md text-primary tabular-nums">95.1%</span>
+</div>
+</div>
+<div class="mt-space-xs inline-flex items-center gap-space-xs px-space-xs py-space-xxs rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+<span>Baseline Anchor</span>
+</div>
+</div>
+</div>
+<!-- 4. K-Nearest Neighbors -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between hover:shadow-md transition-all">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Distance-Based</span>
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">hub</span>
+</div>
+<span class="font-headline-md text-headline-md text-primary mt-space-xs">K-Nearest Neighbors</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">k=5, weights=dist</span>
+</div>
+<div class="mt-space-lg pt-space-md flex flex-col gap-space-sm">
+<div class="flex items-baseline justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Accuracy</span>
+<span class="font-headline-lg text-headline-lg text-primary tabular-nums font-bold">87.98%</span>
+</div>
+<div class="grid grid-cols-2 gap-space-xs pt-space-xs">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Precision</span>
+<span class="font-label-md text-label-md text-primary tabular-nums">88.5%</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Recall</span>
+<span class="font-label-md text-label-md text-primary tabular-nums">87.2%</span>
+</div>
+</div>
+<div class="mt-space-xs inline-flex items-center gap-space-xs px-space-xs py-space-xxs rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+<span>Higher Latency (12ms)</span>
+</div>
+</div>
+</div>
+<!-- 5. Logistic Regression -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between hover:shadow-md transition-all">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Linear Classifier</span>
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">linear_scale</span>
+</div>
+<span class="font-headline-md text-headline-md text-primary mt-space-xs">Logistic Regression</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">C=1.0, max_iter=1000</span>
+</div>
+<div class="mt-space-lg pt-space-md flex flex-col gap-space-sm">
+<div class="flex items-baseline justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Accuracy</span>
+<span class="font-headline-lg text-headline-lg text-primary tabular-nums font-bold">91.96%</span>
+</div>
+<div class="grid grid-cols-2 gap-space-xs pt-space-xs">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Precision</span>
+<span class="font-label-md text-label-md text-primary tabular-nums">92.4%</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Recall</span>
+<span class="font-label-md text-label-md text-primary tabular-nums">91.3%</span>
+</div>
+</div>
+<div class="mt-space-xs inline-flex items-center gap-space-xs px-space-xs py-space-xxs rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+<span>Low Computational Cost</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Comparative Table Section -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<div class="p-space-xl flex flex-col md:flex-row md:items-center justify-between gap-space-sm bg-surface-container-lowest">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[20px] text-secondary">table_chart</span>
+<h2 class="font-headline-md text-headline-md text-primary font-semibold">Comprehensive Metrics Comparison Table</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xxs">Multi-dimensional performance matrix evaluated on held-out stratified test split.</p>
+</div>
+<div class="flex items-center gap-space-sm self-start md:self-auto">
+<div class="flex items-center bg-surface-container px-space-xs py-space-xxs rounded-full text-on-surface-variant text-label-sm font-label-sm">
+<span class="px-space-sm py-space-xxs rounded-full bg-surface-container-lowest shadow-sm text-primary font-semibold">Classification Metrics</span>
+<span class="px-space-sm py-space-xxs rounded-full hover:text-primary transition-colors cursor-pointer">Inference Profiling</span>
+</div>
+</div>
+</div>
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider h-10">
+<th class="px-space-xl py-space-xs font-semibold">Model Name</th>
+<th class="px-space-lg py-space-xs font-semibold">Algorithm Type</th>
+<th class="px-space-lg py-space-xs font-semibold text-right">Accuracy</th>
+<th class="px-space-lg py-space-xs font-semibold text-right">Precision</th>
+<th class="px-space-lg py-space-xs font-semibold text-right">Recall</th>
+<th class="px-space-lg py-space-xs font-semibold text-right">F1-Score</th>
+<th class="px-space-lg py-space-xs font-semibold text-right">AUC-ROC</th>
+<th class="px-space-xl py-space-xs font-semibold text-right">Latency</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<!-- Decision Tree -->
+<tr class="hover:bg-surface-container-low transition-colors h-14">
+<td class="px-space-xl py-space-sm font-label-md text-label-md text-primary flex items-center gap-space-sm">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>Decision Tree</span>
+</td>
+<td class="px-space-lg py-space-sm font-body-sm text-body-sm text-on-surface-variant">Tree Ensemble</td>
+<td class="px-space-lg py-space-sm font-code-sm text-code-sm text-primary text-right tabular-nums">97.81%</td>
+<td class="px-space-lg py-space-sm font-code-sm text-code-sm text-primary text-right tabular-nums">98.12%</td>
+<td class="px-space-lg py-space-sm font-code-sm text-code-sm text-primary text-right tabular-nums">97.50%</td>
+<td class="px-space-lg py-space-sm font-code-sm text-code-sm text-primary text-right tabular-nums">97.81%</td>
+<td class="px-space-lg py-space-sm font-code-sm text-code-sm text-primary text-right tabular-nums">0.978</td>
+<td class="px-space-xl py-space-sm font-code-sm text-code-sm text-on-surface-variant text-right tabular-nums">1.8ms</td>
+</tr>
+<!-- Random Forest (Best) -->
+<tr class="bg-surface-container-low/60 hover:bg-surface-container-low transition-colors h-14">
+<td class="px-space-xl py-space-sm font-label-md text-label-md text-primary flex items-center gap-space-sm">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container"></span>
+<span class="font-bold">Random Forest</span>
+<span class="inline-flex items-center px-space-xs py-0.5 rounded text-[10px] font-code-sm font-bold bg-tertiary-fixed-dim/20 text-on-tertiary-container">CHAMPION</span>
+</td>
+<td class="px-space-lg py-space-sm font-body-sm text-body-sm text-primary font-medium">Bagging Ensemble</td>
+<td class="px-space-lg py-space-sm font-code-sm text-code-sm text-on-tertiary-container font-bold text-right tabular-nums">98.36%</td>
+<td class="px-space-lg py-space-sm font-code-sm text-code-sm text-on-tertiary-container font-semibold text-right tabular-nums">98.50%</td>
+<td class="px-space-lg py-space-sm font-code-sm text-code-sm text-on-tertiary-container font-semibold text-right tabular-nums">98.20%</td>
+<td class="px-space-lg py-space-sm font-code-sm text-code-sm text-on-tertiary-container font-semibold text-right tabular-nums">98.35%</td>
+<td class="px-space-lg py-space-sm font-code-sm text-code-sm text-on-tertiary-container font-semibold text-right tabular-nums">0.984</td>
+<td class="px-space-xl py-space-sm font-code-sm text-code-sm text-primary text-right tabular-nums font-medium">4.2ms</td>
+</tr>
+<!-- Naive Bayes -->
+<tr class="hover:bg-surface-container-low transition-colors h-14">
+<td class="px-space-xl py-space-sm font-label-md text-label-md text-primary flex items-center gap-space-sm">
+<span class="w-2 h-2 rounded-full bg-outline-variant"></span>
+<span>Naive Bayes</span>
+</td>
+<td class="px-space-lg py-space-sm font-body-sm text-body-sm text-on-surface-variant">Probabilistic</td>
+<td class="px-space-lg py-space-sm font-code-sm text-code-sm text-primary text-right tabular-nums">94.54%</td>
+<td class="px-space-lg py-space-sm font-code-sm text-code-sm text-primary text-right tabular-nums">94.20%</td>
+<td class="px-space-lg py-space-sm font-code-sm text-code-sm text-primary text-right tabular-nums">95.10%</td>
+<td class="px-space-lg py-space-sm font-code-sm text-code-sm text-primary text-right tabular-nums">94.65%</td>
+<td class="px-space-lg py-space-sm font-code-sm text-code-sm text-primary text-right tabular-nums">0.945</td>
+<td class="px-space-xl py-space-sm font-code-sm text-code-sm text-on-surface-variant text-right tabular-nums">0.9ms</td>
+</tr>
+<!-- K-Nearest Neighbors -->
+<tr class="hover:bg-surface-container-low transition-colors h-14">
+<td class="px-space-xl py-space-sm font-label-md text-label-md text-primary flex items-center gap-space-sm">
+<span class="w-2 h-2 rounded-full bg-outline-variant"></span>
+<span>K-Nearest Neighbors</span>
+</td>
+<td class="px-space-lg py-space-sm font-body-sm text-body-sm text-on-surface-variant">Distance-based</td>
+<td class="px-space-lg py-space-sm font-code-sm text-code-sm text-primary text-right tabular-nums">87.98%</td>
+<td class="px-space-lg py-space-sm font-code-sm text-code-sm text-primary text-right tabular-nums">88.50%</td>
+<td class="px-space-lg py-space-sm font-code-sm text-code-sm text-primary text-right tabular-nums">87.20%</td>
+<td class="px-space-lg py-space-sm font-code-sm text-code-sm text-primary text-right tabular-nums">87.84%</td>
+<td class="px-space-lg py-space-sm font-code-sm text-code-sm text-primary text-right tabular-nums">0.880</td>
+<td class="px-space-xl py-space-sm font-code-sm text-code-sm text-on-surface-variant text-right tabular-nums">12.1ms</td>
+</tr>
+<!-- Logistic Regression -->
+<tr class="hover:bg-surface-container-low transition-colors h-14">
+<td class="px-space-xl py-space-sm font-label-md text-label-md text-primary flex items-center gap-space-sm">
+<span class="w-2 h-2 rounded-full bg-outline-variant"></span>
+<span>Logistic Regression</span>
+</td>
+<td class="px-space-lg py-space-sm font-body-sm text-body-sm text-on-surface-variant">Linear Classifier</td>
+<td class="px-space-lg py-space-sm font-code-sm text-code-sm text-primary text-right tabular-nums">91.96%</td>
+<td class="px-space-lg py-space-sm font-code-sm text-code-sm text-primary text-right tabular-nums">92.40%</td>
+<td class="px-space-lg py-space-sm font-code-sm text-code-sm text-primary text-right tabular-nums">91.30%</td>
+<td class="px-space-lg py-space-sm font-code-sm text-code-sm text-primary text-right tabular-nums">91.85%</td>
+<td class="px-space-lg py-space-sm font-code-sm text-code-sm text-primary text-right tabular-nums">0.920</td>
+<td class="px-space-xl py-space-sm font-code-sm text-code-sm text-on-surface-variant text-right tabular-nums">1.1ms</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Visual Visualizations Section (Two Columns) -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-space-xl">
+<!-- Left Card: Confusion Matrix -->
+<div class="bg-surface-container-lowest p-space-xl rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Error Distribution</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant bg-surface-container px-space-xs py-space-xxs rounded">N = 1,281</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary font-bold">Confusion Matrix – Random Forest</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Classification outcomes mapping ground truth vs. inference output on primary test batch.</p>
+</div>
+<!-- 2x2 Matrix Component -->
+<div class="my-space-xl flex flex-col items-center">
+<div class="w-full max-w-md">
+<div class="flex items-center justify-center mb-space-sm">
+<span class="font-label-sm text-label-sm font-semibold uppercase tracking-wider text-on-surface-variant">Predicted Decision</span>
+</div>
+<div class="grid grid-cols-[auto_1fr_1fr] gap-space-sm items-center">
+<!-- Column labels -->
+<div></div>
+<div class="text-center font-label-md text-label-md text-primary font-semibold py-space-xs bg-surface-container rounded-lg">Approved</div>
+<div class="text-center font-label-md text-label-md text-primary font-semibold py-space-xs bg-surface-container rounded-lg">Rejected</div>
+<!-- Row: Actual Approved -->
+<div class="font-label-md text-label-md text-primary font-semibold pr-space-xs text-right whitespace-nowrap">Actual Approved</div>
+<!-- True Approved (High saturation Teal) -->
+<div class="relative group bg-tertiary-container text-tertiary-fixed p-space-lg rounded-xl flex flex-col items-center justify-center shadow-inner text-center overflow-hidden transition-transform hover:scale-[1.02]">
+<div class="absolute -right-4 -bottom-4 w-16 h-16 rounded-full bg-on-tertiary-container/20"></div>
+<span class="font-label-sm text-label-sm text-tertiary-fixed-dim uppercase tracking-wider">True Approved</span>
+<span class="font-display-lg text-display-lg font-bold tabular-nums text-white mt-space-xxs">785</span>
+<span class="font-code-sm text-code-sm text-tertiary-fixed/80 mt-space-xxs">61.28% of total</span>
+</div>
+<!-- False Rejected (Type I error) -->
+<div class="bg-surface-container-low hover:bg-surface-container transition-colors p-space-lg rounded-xl flex flex-col items-center justify-center text-center">
+<span class="font-label-sm text-label-sm text-error uppercase tracking-wider">False Rejected</span>
+<span class="font-headline-xl text-headline-xl font-bold tabular-nums text-on-surface mt-space-xxs">11</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant mt-space-xxs">Type I (0.86%)</span>
+</div>
+<!-- Row: Actual Rejected -->
+<div class="font-label-md text-label-md text-primary font-semibold pr-space-xs text-right whitespace-nowrap">Actual Rejected</div>
+<!-- False Approved (Type II error) -->
+<div class="bg-surface-container-low hover:bg-surface-container transition-colors p-space-lg rounded-xl flex flex-col items-center justify-center text-center">
+<span class="font-label-sm text-label-sm text-error uppercase tracking-wider">False Approved</span>
+<span class="font-headline-xl text-headline-xl font-bold tabular-nums text-on-surface mt-space-xxs">10</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant mt-space-xxs">Type II (0.78%)</span>
+</div>
+<!-- True Rejected (High saturation Blue) -->
+<div class="relative group bg-primary-container text-primary-fixed p-space-lg rounded-xl flex flex-col items-center justify-center shadow-inner text-center overflow-hidden transition-transform hover:scale-[1.02]">
+<div class="absolute -right-4 -bottom-4 w-16 h-16 rounded-full bg-secondary/30"></div>
+<span class="font-label-sm text-label-sm text-primary-fixed-dim uppercase tracking-wider">True Rejected</span>
+<span class="font-display-lg text-display-lg font-bold tabular-nums text-white mt-space-xxs">475</span>
+<span class="font-code-sm text-code-sm text-primary-fixed/80 mt-space-xxs">37.08% of total</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Calculation Readouts -->
+<div class="pt-space-md bg-surface-container-low rounded-xl p-space-md grid grid-cols-3 gap-space-sm text-center">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Specificity</span>
+<span class="font-headline-md text-headline-md text-primary font-bold tabular-nums">97.74%</span>
+<span class="font-code-sm text-[10px] text-on-surface-variant">TN / (TN + FP)</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Sensitivity (Recall)</span>
+<span class="font-headline-md text-headline-md text-on-tertiary-container font-bold tabular-nums">98.74%</span>
+<span class="font-code-sm text-[10px] text-on-surface-variant">TP / (TP + FN)</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Overall Error Rate</span>
+<span class="font-headline-md text-headline-md text-error font-bold tabular-nums">1.64%</span>
+<span class="font-code-sm text-[10px] text-on-surface-variant">(FP + FN) / Total</span>
+</div>
+</div>
+</div>
+<!-- Right Card: Feature Importance Analysis -->
+<div class="bg-surface-container-lowest p-space-xl rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Interpretability &amp; Explainability</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant bg-surface-container px-space-xs py-space-xxs rounded">Normalized Weight</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary font-bold">Feature Importance Analysis</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Mean decrease in Gini impurity aggregated over 100 estimator splits in Random Forest core.</p>
+</div>
+<!-- Horizontal Bar Visualization -->
+<div class="my-space-md flex flex-col gap-space-sm">
+<!-- 1. cibil_score (42.8%) -->
+<div class="flex flex-col gap-space-xxs">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="font-code-sm text-code-sm text-primary font-semibold flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-on-tertiary-container">verified_user</span>
+<span>cibil_score</span>
+</span>
+<span class="font-code-sm text-code-sm text-on-tertiary-container font-bold tabular-nums">42.8%</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-3 overflow-hidden">
+<div class="bg-tertiary-container h-3 rounded-full transition-all duration-700 ease-out" style="width: 42.8%;"></div>
+</div>
+</div>
+<!-- 2. loan_amount (16.4%) -->
+<div class="flex flex-col gap-space-xxs">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="font-code-sm text-code-sm text-on-surface">loan_amount</span>
+<span class="font-code-sm text-code-sm text-primary font-semibold tabular-nums">16.4%</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2 overflow-hidden">
+<div class="bg-secondary h-2 rounded-full" style="width: 16.4%;"></div>
+</div>
+</div>
+<!-- 3. income_annum (14.1%) -->
+<div class="flex flex-col gap-space-xxs">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="font-code-sm text-code-sm text-on-surface">income_annum</span>
+<span class="font-code-sm text-code-sm text-primary font-semibold tabular-nums">14.1%</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2 overflow-hidden">
+<div class="bg-secondary h-2 rounded-full" style="width: 14.1%;"></div>
+</div>
+</div>
+<!-- 4. luxury_assets_value (9.2%) -->
+<div class="flex flex-col gap-space-xxs">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="font-code-sm text-code-sm text-on-surface">luxury_assets_value</span>
+<span class="font-code-sm text-code-sm text-primary font-semibold tabular-nums">9.2%</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2 overflow-hidden">
+<div class="bg-secondary-container h-2 rounded-full" style="width: 9.2%;"></div>
+</div>
+</div>
+<!-- 5. bank_asset_value (6.8%) -->
+<div class="flex flex-col gap-space-xxs">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="font-code-sm text-code-sm text-on-surface">bank_asset_value</span>
+<span class="font-code-sm text-code-sm text-primary font-semibold tabular-nums">6.8%</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2 overflow-hidden">
+<div class="bg-secondary-container h-2 rounded-full" style="width: 6.8%;"></div>
+</div>
+</div>
+<!-- 6. loan_term (4.7%) -->
+<div class="flex flex-col gap-space-xxs">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="font-code-sm text-code-sm text-on-surface">loan_term</span>
+<span class="font-code-sm text-code-sm text-primary font-semibold tabular-nums">4.7%</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2 overflow-hidden">
+<div class="bg-outline-variant h-2 rounded-full" style="width: 4.7%;"></div>
+</div>
+</div>
+<!-- 7. commercial_assets_value (3.5%) -->
+<div class="flex flex-col gap-space-xxs">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="font-code-sm text-code-sm text-on-surface">commercial_assets_value</span>
+<span class="font-code-sm text-code-sm text-primary font-semibold tabular-nums">3.5%</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2 overflow-hidden">
+<div class="bg-outline-variant h-2 rounded-full" style="width: 3.5%;"></div>
+</div>
+</div>
+<!-- 8. residential_assets_value (2.5%) -->
+<div class="flex flex-col gap-space-xxs">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="font-code-sm text-code-sm text-on-surface">residential_assets_value</span>
+<span class="font-code-sm text-code-sm text-primary font-semibold tabular-nums">2.5%</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2 overflow-hidden">
+<div class="bg-outline-variant h-2 rounded-full" style="width: 2.5%;"></div>
+</div>
+</div>
+</div>
+<!-- Analytical Callout -->
+<div class="mt-space-md p-space-md rounded-xl bg-tertiary-fixed-dim/15 flex items-start gap-space-sm text-on-tertiary-container">
+<span class="material-symbols-outlined text-[20px] shrink-0 mt-0.5">insights</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold">Key Underwriting Finding</span>
+<p class="font-body-sm text-body-sm text-on-surface mt-space-xxs">CIBIL Score contributes over 42% of predictive decision power across decision tree splits, outranking liquidity and collateral ratios by an order of 2.6x.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Institutional Model Audit Note -->
+<div class="p-space-lg rounded-xl bg-surface-container-low flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary text-[24px]">verified</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-primary font-bold">Basel III / Fair Lending Compliance Signature</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">All 5 models verified for demographic parity and equalized odds. SHA-256 Checksum: <code class="font-code-sm text-code-sm bg-surface-container px-1 py-0.5 rounded">e8c74a...9df210</code></span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm self-end md:self-auto shrink-0">
+<button class="px-space-md py-space-xs rounded-lg font-label-md text-label-md text-secondary hover:bg-surface-container transition-colors" type="button">Audit Disparate Impact</button>
+<button class="px-space-md py-space-xs rounded-lg font-label-md text-label-md bg-surface-container-lowest text-primary shadow-sm hover:bg-surface-container transition-colors" type="button">Download Weights (.pkl)</button>
+</div>
+</div>
+</div>
+</div></main></div></body></html>

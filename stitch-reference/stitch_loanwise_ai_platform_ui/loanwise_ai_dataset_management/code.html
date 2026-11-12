@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Manrope:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-secondary-fixed-variant":"#0b4490","on-primary-container":"#7c8ba6","surface-bright":"#f8f9ff","inverse-on-surface":"#eaf1ff","background":"#f8f9ff","primary-fixed-dim":"#b7c7e4","tertiary-container":"#002924","on-primary":"#ffffff","secondary-fixed":"#d8e2ff","primary":"#000e23","on-secondary-container":"#003f8a","error":"#ba1a1a","tertiary-fixed":"#76f8e3","secondary":"#2f5daa","primary-container":"#14243a","inverse-primary":"#b7c7e4","surface-container-highest":"#d4e4fc","surface":"#f8f9ff","secondary-fixed-dim":"#adc6ff","tertiary-fixed-dim":"#56dbc7","surface-tint":"#505f78","on-tertiary":"#ffffff","error-container":"#ffdad6","outline":"#75777d","surface-container-high":"#dce9ff","on-primary-fixed":"#0b1c32","on-surface-variant":"#44474d","outline-variant":"#c5c6cd","secondary-container":"#85adff","surface-container-lowest":"#ffffff","surface-container":"#e5eeff","on-tertiary-container":"#009c8b","on-error-container":"#93000a","surface-variant":"#d4e4fc","inverse-surface":"#223144","surface-container-low":"#eff4ff","on-background":"#0d1c2e","on-primary-fixed-variant":"#38475f","on-tertiary-fixed-variant":"#005047","on-secondary-fixed":"#001a41","on-secondary":"#ffffff","primary-fixed":"#d4e3ff","on-error":"#ffffff","surface-dim":"#ccdbf4","tertiary":"#00110e","on-tertiary-fixed":"#00201c","on-surface":"#0d1c2e"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"space-3xl":"3rem","space-xs":"0.25rem",gutter:"1.5rem","gutter-mobile":"0.75rem",margin:"2rem","space-2xl":"2rem","margin-mobile":"1rem","space-lg":"1rem","space-xl":"1.5rem","space-md":"0.75rem","space-xxs":"0.125rem","space-sm":"0.5rem"},fontFamily:{"headline-lg":["Manrope"],"body-sm":["Inter"],"body-lg":["Inter"],"label-md":["Inter"],"display-lg":["Manrope"],"label-sm":["Inter"],"headline-xl":["Manrope"],"display-lg-mobile":["Manrope"],"code-sm":["JetBrains Mono"],"headline-md":["Manrope"],"body-md":["Inter"]},fontSize:{"headline-lg":["22px",{lineHeight:"30px",letterSpacing:"-0.01em",fontWeight:"600"}],"body-sm":["12px",{lineHeight:"16px",fontWeight:"400"}],"body-lg":["16px",{lineHeight:"24px",fontWeight:"400"}],"label-md":["13px",{lineHeight:"18px",letterSpacing:"0.01em",fontWeight:"600"}],"display-lg":["36px",{lineHeight:"44px",letterSpacing:"-0.02em",fontWeight:"700"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.03em",fontWeight:"600"}],"headline-xl":["28px",{lineHeight:"36px",letterSpacing:"-0.015em",fontWeight:"600"}],"display-lg-mobile":["28px",{lineHeight:"36px",letterSpacing:"-0.015em",fontWeight:"700"}],"code-sm":["12px",{lineHeight:"16px",fontWeight:"500"}],"headline-md":["18px",{lineHeight:"26px",letterSpacing:"-0.005em",fontWeight:"600"}],"body-md":["14px",{lineHeight:"20px",fontWeight:"400"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-64 bg-primary-container z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-16 px-space-xl flex items-center gap-space-md"><img alt="LoanWise AI Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrAqikGdPADuth3eHHoHQ2xQicyz21axIn4WetgdFqv6GKl0tK3JDGx9GMeB1npl5fB-ozm-fSkSoVdooV-4fONFmjRepL5JmpeKkAIyUutQgn89T3heYJ7RGbNL-u9GJmxAuvPHFBvS7YjCYnfe8Cn-8rBVbd5_ZiVCRkO2rGX32vMt3I3J7b5p042WGK-YSEQXMrXOuRtaxAbXodjgzgRzYlonGddtTXRnklsK63A"/><div class="flex flex-col"><span class="font-headline-md text-headline-md text-on-primary tracking-tight">LoanWise AI</span><span class="font-label-sm text-label-sm text-on-primary-container uppercase tracking-wider">Risk Engine v3.2</span></div></div><nav class="px-space-md py-space-lg flex flex-col gap-space-xxs" data-active-classes="bg-tertiary-container text-on-tertiary-container font-label-md"><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg font-label-md text-label-md text-on-primary-container hover:bg-primary hover:text-on-primary transition-colors" data-path="dashboard" href="#dashboard"><span class="material-symbols-outlined text-[20px]">grid_view</span><span>Dashboard</span></a><a aria-current="page" class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg transition-colors bg-tertiary-container text-on-tertiary-container font-label-md" data-path="dataset-management" href="#dataset"><span class="material-symbols-outlined text-[20px]">database</span><span>Dataset Management</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg font-label-md text-label-md text-on-primary-container hover:bg-primary hover:text-on-primary transition-colors" data-path="model-performance" href="#models"><span class="material-symbols-outlined text-[20px]">query_stats</span><span>Model Performance</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg font-label-md text-label-md text-on-primary-container hover:bg-primary hover:text-on-primary transition-colors" data-path="new-prediction" href="#predict"><span class="material-symbols-outlined text-[20px]">neurology</span><span>New Prediction</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg font-label-md text-label-md text-on-primary-container hover:bg-primary hover:text-on-primary transition-colors" data-path="prediction-history" href="#history"><span class="material-symbols-outlined text-[20px]">history</span><span>Prediction History</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg font-label-md text-label-md text-on-primary-container hover:bg-primary hover:text-on-primary transition-colors" data-path="settings" href="#settings"><span class="material-symbols-outlined text-[20px]">settings</span><span>Settings</span></a></nav></div><div class="p-space-md flex flex-col gap-space-sm bg-primary/40"><div class="flex items-center gap-space-md p-space-sm rounded-lg"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBILVmDYCeIPqneq_bf21VUAXbbM9OiuuehxsG8V_QMXA4r3cwPYONJZ398UHLxWrSlK3e7SOXpB5PyiUkbBc1Df46QKkoOu3kdodCLl039QDwR6EORzdvRHSW1FZtzec0NXgBkWggyjM5ChJHl0II5xuMaaMjLiT94eyo_b4tm1Sn6LjTQKUZvGHTO-3Uz2p6xL2yr9tA9zRTOiM1uCpB64dBFe1xJqgPFeJvJrUY"/><div class="flex flex-col min-w-0 flex-1"><span class="font-label-md text-label-md text-on-primary truncate">Alex Morgan</span><span class="font-label-sm text-label-sm text-on-primary-container truncate">Senior Credit Analyst</span></div></div><a class="flex items-center justify-between px-space-md py-space-xs text-on-primary-container hover:text-on-primary font-label-sm text-label-sm transition-colors" data-path="login" href="#login"><span>Sign Out</span><span class="material-symbols-outlined text-[16px]">logout</span></a></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-sm"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Enterprise ML Underwriting</span><span class="text-outline-variant font-body-sm">/</span><span class="font-label-md text-label-md text-on-surface">Decision Core</span></div><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-xs px-space-sm py-space-xxs rounded-full bg-tertiary-fixed-dim/20 text-on-tertiary-container"><span class="w-2 h-2 rounded-full bg-on-tertiary-container"></span><span class="font-label-sm text-label-sm font-code-sm">5 Models Online</span></div><button class="flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">search</span><span class="font-label-sm text-label-sm">Quick Search (⌘K)</span></button><button class="relative p-space-xs text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 flex items-center justify-center w-4 h-4 rounded-full bg-error text-on-error text-[10px] font-bold">2</span></button><div class="flex items-center gap-space-xs"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBILVmDYCeIPqneq_bf21VUAXbbM9OiuuehxsG8V_QMXA4r3cwPYONJZ398UHLxWrSlK3e7SOXpB5PyiUkbBc1Df46QKkoOu3kdodCLl039QDwR6EORzdvRHSW1FZtzec0NXgBkWggyjM5ChJHl0II5xuMaaMjLiT94eyo_b4tm1Sn6LjTQKUZvGHTO-3Uz2p6xL2yr9tA9zRTOiM1uCpB64dBFe1xJqgPFeJvJrUY"/></div></div></header><main class="w-full pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<div class="p-space-xl lg:p-space-2xl flex flex-col gap-space-xl max-w-[1600px] mx-auto w-full">
+<!-- Top Action & Context Header -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Ingestion &amp; ETL Core</span>
+<span class="text-on-surface-variant font-body-sm">•</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">SHA-256: d8f39a7</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-primary font-bold">Dataset Management</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+          Upload, inspect and prepare your loan application dataset for machine learning inference and model re-calibration.
+        </p>
+</div>
+<div class="flex items-center gap-space-sm flex-wrap">
+<button class="flex items-center gap-space-xs px-space-md py-space-sm rounded-lg bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary">file_download</span>
+<span>Download Standard Template (CSV)</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-space-sm rounded-lg bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">schema</span>
+<span>Inspect Data Dictionary</span>
+</button>
+</div>
+</div>
+<!-- Drag & Drop Upload Zone + Processing Summary Block -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-stretch">
+<!-- Upload Dropzone -->
+<div class="lg:col-span-8 flex flex-col justify-between bg-surface-container-lowest rounded-xl p-space-xl shadow-sm relative overflow-hidden group">
+<div class="absolute -right-16 -top-16 w-56 h-56 bg-secondary/5 rounded-full pointer-events-none transition-transform group-hover:scale-125"></div>
+<div class="flex flex-col items-center justify-center p-space-xl rounded-xl bg-surface-container-low text-center transition-all">
+<div class="w-16 h-16 rounded-full bg-secondary-fixed/50 flex items-center justify-center mb-space-md text-secondary">
+<span class="material-symbols-outlined text-[32px]">cloud_upload</span>
+</div>
+<p class="font-headline-md text-headline-md text-primary font-semibold mb-space-xxs">
+            Drag and drop your loan training CSV file here, or click to browse
+          </p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-lg">
+            Supported format: CSV (UTF-8) • Maximum file size: 50MB • Target feature: <code class="font-code-sm text-code-sm bg-surface-container-highest px-1.5 py-0.5 rounded text-on-primary-fixed">loan_status</code>
+</p>
+<div class="flex items-center gap-space-md">
+<button class="px-space-xl py-space-sm rounded-lg bg-primary-container text-on-primary font-label-md text-label-md hover:bg-secondary transition-all shadow-md flex items-center gap-space-xs" type="button">
+<span class="material-symbols-outlined text-[18px]">upload_file</span>
+<span>Upload CSV</span>
+</button>
+<button class="px-space-md py-space-sm rounded-lg bg-surface-container-high text-on-surface font-label-md text-label-md hover:bg-surface-container-highest transition-colors" type="button">
+              Direct S3 Sync
+            </button>
+</div>
+</div>
+<!-- File Upload Status Card -->
+<div class="mt-space-lg p-space-md rounded-lg bg-surface-container flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md min-w-0 w-full md:w-auto">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-[24px]">description</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md text-primary font-medium truncate">loan_approval_dataset.csv</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">• 2.4 MB</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-label-sm text-label-sm text-on-tertiary-container flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-container"></span>
+                  Uploaded successfully • 100%
+                </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">• 4,269 records verified</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-md w-full md:w-auto justify-end">
+<div class="w-28 md:w-36 flex flex-col gap-1">
+<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
+<div class="bg-on-tertiary-container h-full rounded-full transition-all duration-500" style="width: 100%;"></div>
+</div>
+<span class="font-code-sm text-code-sm text-right text-on-surface-variant">Validated</span>
+</div>
+<button class="px-space-md py-space-sm rounded-lg bg-tertiary-container text-on-tertiary-container font-label-md text-label-md flex items-center gap-space-xs hover:bg-primary-container hover:text-on-primary transition-all flex-shrink-0 shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">settings_suggest</span>
+<span>Process Dataset</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Quick Health & Schema Diagnostics Card -->
+<div class="lg:col-span-4 bg-surface-container-lowest rounded-xl p-space-xl shadow-sm flex flex-col justify-between">
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-headline-md text-headline-md text-primary font-semibold">Integrity Diagnostics</span>
+<span class="px-space-sm py-0.5 rounded-full bg-surface-container-high text-on-surface font-code-sm text-code-sm">v3.2 Spec</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Automated schema enforcement validates categorical levels, outlier thresholds, and column typing prior to modeling.
+          </p>
+<div class="flex flex-col gap-space-sm mt-space-xs">
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-on-tertiary-container">check_circle</span>
+<span class="font-label-md text-label-md text-on-surface">Data Typing Conformity</span>
+</div>
+<span class="font-code-sm text-code-sm text-on-tertiary-container font-semibold">100% OK</span>
+</div>
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-on-tertiary-container">verified_user</span>
+<span class="font-label-md text-label-md text-on-surface">Target Distribution</span>
+</div>
+<span class="font-code-sm text-code-sm text-secondary font-semibold">62.2% Approved</span>
+</div>
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-secondary">analytics</span>
+<span class="font-label-md text-label-md text-on-surface">Feature Multicollinearity</span>
+</div>
+<span class="font-code-sm text-code-sm text-on-surface font-semibold">VIF &lt; 4.8</span>
+</div>
+</div>
+</div>
+<div class="mt-space-lg pt-space-md flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Pre-check Runtime: 142ms</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold cursor-pointer hover:underline">Download Audit Log</span>
+</div>
+</div>
+</div>
+<!-- Dataset Information Metric Cards -->
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-space-md">
+<!-- 1. Total Rows -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Total Rows</span>
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">table_rows</span>
+</div>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-lg text-display-lg text-primary font-bold">4,269</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">Applicant Records</span>
+</div>
+<!-- 2. Total Columns -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Total Columns</span>
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">view_column</span>
+</div>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-lg text-display-lg text-primary font-bold">13</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">12 Pred + 1 Target</span>
+</div>
+<!-- 3. Missing Values -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Missing Values</span>
+<span class="material-symbols-outlined text-[20px] text-on-tertiary-container">fact_check</span>
+</div>
+<div class="flex items-baseline gap-space-sm">
+<span class="font-display-lg text-display-lg text-primary font-bold">0</span>
+<span class="px-space-xs py-0.5 rounded-full bg-tertiary-fixed-dim/30 text-on-tertiary-container font-label-sm text-label-sm">Clean / No Nulls</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">Complete Observation Set</span>
+</div>
+<!-- 4. Approved Records -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Approved Records</span>
+<span class="material-symbols-outlined text-[20px] text-on-tertiary-container">thumb_up</span>
+</div>
+<div class="flex items-baseline gap-space-sm">
+<span class="font-display-lg text-display-lg text-primary font-bold">2,656</span>
+<span class="font-code-sm text-code-sm text-on-tertiary-container font-semibold">62.2%</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full mt-space-xs overflow-hidden">
+<div class="bg-on-tertiary-container h-full rounded-full" style="width: 62.2%;"></div>
+</div>
+</div>
+<!-- 5. Rejected Records -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between col-span-2 md:col-span-1">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Rejected Records</span>
+<span class="material-symbols-outlined text-[20px] text-error">thumb_down</span>
+</div>
+<div class="flex items-baseline gap-space-sm">
+<span class="font-display-lg text-display-lg text-primary font-bold">1,613</span>
+<span class="font-code-sm text-code-sm text-error font-semibold">37.8%</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full mt-space-xs overflow-hidden">
+<div class="bg-error h-full rounded-full" style="width: 37.8%;"></div>
+</div>
+</div>
+</div>
+<!-- Processing Pipeline Flow (Visual Multi-step Horizontal Track) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-xl shadow-sm flex flex-col gap-space-lg">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary font-bold">Automated ML Preprocessing Pipeline</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Standardized algorithmic sequence executed prior to cross-validation &amp; hyperparameter tuning.
+          </p>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-code-sm text-code-sm bg-surface-container px-space-sm py-1 rounded-md text-on-surface">Auto-Retrain: Enabled</span>
+<button class="px-space-md py-1 rounded-lg bg-surface-container hover:bg-surface-container-high font-label-md text-label-md text-on-surface transition-colors flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+<span>Configure</span>
+</button>
+</div>
+</div>
+<!-- 7 Steps Visual Track -->
+<div class="relative py-space-sm">
+<div class="grid grid-cols-1 md:grid-cols-7 gap-space-md relative z-10">
+<!-- Step 1 -->
+<div class="flex flex-col p-space-md rounded-lg bg-surface-container-low transition-all">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-code-sm text-code-sm text-on-surface-variant font-bold">01</span>
+<span class="w-6 h-6 rounded-full bg-tertiary-fixed-dim/40 text-on-tertiary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</span>
+</div>
+<span class="font-label-md text-label-md text-primary font-semibold">Dataset Loading</span>
+<span class="font-body-sm text-body-sm text-on-tertiary-container mt-1">Completed</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant mt-2 text-[10px]">Read 4,269 records</span>
+</div>
+<!-- Step 2 -->
+<div class="flex flex-col p-space-md rounded-lg bg-surface-container-low transition-all">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-code-sm text-code-sm text-on-surface-variant font-bold">02</span>
+<span class="w-6 h-6 rounded-full bg-tertiary-fixed-dim/40 text-on-tertiary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</span>
+</div>
+<span class="font-label-md text-label-md text-primary font-semibold">Null Checking</span>
+<span class="font-body-sm text-body-sm text-on-tertiary-container mt-1">0 Found</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant mt-2 text-[10px]">Zero imputation req</span>
+</div>
+<!-- Step 3 -->
+<div class="flex flex-col p-space-md rounded-lg bg-surface-container-low transition-all">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-code-sm text-code-sm text-on-surface-variant font-bold">03</span>
+<span class="w-6 h-6 rounded-full bg-tertiary-fixed-dim/40 text-on-tertiary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</span>
+</div>
+<span class="font-label-md text-label-md text-primary font-semibold">Drop Loan ID</span>
+<span class="font-body-sm text-body-sm text-on-tertiary-container mt-1">Excluded</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant mt-2 text-[10px]">Avoid data leakage</span>
+</div>
+<!-- Step 4 -->
+<div class="flex flex-col p-space-md rounded-lg bg-surface-container-low transition-all">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-code-sm text-code-sm text-on-surface-variant font-bold">04</span>
+<span class="w-6 h-6 rounded-full bg-tertiary-fixed-dim/40 text-on-tertiary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</span>
+</div>
+<span class="font-label-md text-label-md text-primary font-semibold">Label Encoding</span>
+<span class="font-body-sm text-body-sm text-on-tertiary-container mt-1 font-medium">3 Categoricals</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant mt-2 text-[10px] truncate" title="education, self_employed, loan_status">edu, self_emp, status</span>
+</div>
+<!-- Step 5 -->
+<div class="flex flex-col p-space-md rounded-lg bg-surface-container-low transition-all">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-code-sm text-code-sm text-on-surface-variant font-bold">05</span>
+<span class="w-6 h-6 rounded-full bg-tertiary-fixed-dim/40 text-on-tertiary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</span>
+</div>
+<span class="font-label-md text-label-md text-primary font-semibold">Standard Scaling</span>
+<span class="font-body-sm text-body-sm text-on-tertiary-container mt-1 font-medium">StandardScaler</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant mt-2 text-[10px]">z = (x - u) / s</span>
+</div>
+<!-- Step 6 -->
+<div class="flex flex-col p-space-md rounded-lg bg-surface-container-low transition-all">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-code-sm text-code-sm text-on-surface-variant font-bold">06</span>
+<span class="w-6 h-6 rounded-full bg-tertiary-fixed-dim/40 text-on-tertiary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</span>
+</div>
+<span class="font-label-md text-label-md text-primary font-semibold">Train/Test Split</span>
+<span class="font-body-sm text-body-sm text-on-tertiary-container mt-1 font-medium">70/30 Ratio</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant mt-2 text-[10px]">Stratified seed: 42</span>
+</div>
+<!-- Step 7 (Active State) -->
+<div class="flex flex-col p-space-md rounded-lg bg-surface-container-high transition-all">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-code-sm text-code-sm text-secondary font-bold">07</span>
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-on-tertiary-container opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-on-tertiary-container"></span>
+</span>
+</div>
+<span class="font-label-md text-label-md text-primary font-bold">Model Training</span>
+<span class="font-body-sm text-body-sm text-secondary font-semibold mt-1">Ready for Inference</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant mt-2 text-[10px]">5 Ensemble Estimators</span>
+</div>
+</div>
+</div>
+<!-- Highlighted Train / Test Split Breakdown Box -->
+<div class="p-space-lg rounded-xl bg-surface-container-low flex flex-col md:flex-row items-center justify-between gap-space-lg">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[26px]">call_split</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-primary font-semibold">Stratified Partitioning Summary</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Class ratios preserved uniformly across both train and validation subsets.</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xl w-full md:w-auto justify-end">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Training Set</span>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-lg text-headline-lg text-primary font-bold">2,988</span>
+<span class="font-code-sm text-code-sm text-secondary font-semibold">Records (70%)</span>
+</div>
+</div>
+<div class="h-8 w-px bg-outline-variant/40"></div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Testing Set</span>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-lg text-headline-lg text-primary font-bold">1,281</span>
+<span class="font-code-sm text-code-sm text-on-tertiary-container font-semibold">Records (30%)</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Dataset Preview Table (Exact 13 features) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<div class="p-space-xl flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-sm">
+<h2 class="font-headline-md text-headline-md text-primary font-bold">Feature Inspector &amp; Dataset Preview</h2>
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-code-sm text-code-sm">13 Schema Columns</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Full analytical projection reflecting processed categorical normalization and monetary figures.
+          </p>
+</div>
+<div class="flex items-center gap-space-sm flex-wrap">
+<div class="flex items-center gap-space-xs px-space-sm py-1.5 rounded-lg bg-surface-container text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+<span class="font-label-sm text-label-sm">Filter Status: All</span>
+</div>
+<button class="p-1.5 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">fullscreen</span>
+</button>
+<button class="p-1.5 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Dense Scrollable Data Table -->
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-code-sm text-code-sm uppercase tracking-wider text-[11px] h-10">
+<th class="px-space-md py-space-xs font-semibold whitespace-nowrap">loan_id</th>
+<th class="px-space-md py-space-xs font-semibold whitespace-nowrap text-right">no_of_dependents</th>
+<th class="px-space-md py-space-xs font-semibold whitespace-nowrap">education</th>
+<th class="px-space-md py-space-xs font-semibold whitespace-nowrap">self_employed</th>
+<th class="px-space-md py-space-xs font-semibold whitespace-nowrap text-right">income_annum</th>
+<th class="px-space-md py-space-xs font-semibold whitespace-nowrap text-right">loan_amount</th>
+<th class="px-space-md py-space-xs font-semibold whitespace-nowrap text-right">loan_term</th>
+<th class="px-space-md py-space-xs font-semibold whitespace-nowrap text-right">cibil_score</th>
+<th class="px-space-md py-space-xs font-semibold whitespace-nowrap text-right">residential_assets</th>
+<th class="px-space-md py-space-xs font-semibold whitespace-nowrap text-right">commercial_assets</th>
+<th class="px-space-md py-space-xs font-semibold whitespace-nowrap text-right">luxury_assets</th>
+<th class="px-space-md py-space-xs font-semibold whitespace-nowrap text-right">bank_asset</th>
+<th class="px-space-md py-space-xs font-semibold whitespace-nowrap text-center">loan_status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low font-body-sm text-body-sm text-on-surface">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/70 transition-colors h-12">
+<td class="px-space-md py-space-xs font-code-sm text-code-sm font-semibold text-primary">1</td>
+<td class="px-space-md py-space-xs text-right font-code-sm">2</td>
+<td class="px-space-md py-space-xs font-medium">Graduate</td>
+<td class="px-space-md py-space-xs text-on-surface-variant">No</td>
+<td class="px-space-md py-space-xs text-right font-code-sm font-medium">$9,600,000</td>
+<td class="px-space-md py-space-xs text-right font-code-sm font-medium text-primary">$29,900,000</td>
+<td class="px-space-md py-space-xs text-right font-code-sm">12 yrs</td>
+<td class="px-space-md py-space-xs text-right font-code-sm font-bold text-on-tertiary-container">778</td>
+<td class="px-space-md py-space-xs text-right font-code-sm text-on-surface-variant">$2,400,000</td>
+<td class="px-space-md py-space-xs text-right font-code-sm text-on-surface-variant">$17,600,000</td>
+<td class="px-space-md py-space-xs text-right font-code-sm text-on-surface-variant">$22,700,000</td>
+<td class="px-space-md py-space-xs text-right font-code-sm text-on-surface-variant">$8,000,000</td>
+<td class="px-space-md py-space-xs text-center">
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-tertiary-fixed-dim/30 text-on-tertiary-container font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-container"></span>
+                  Approved
+                </span>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/70 transition-colors h-12">
+<td class="px-space-md py-space-xs font-code-sm text-code-sm font-semibold text-primary">2</td>
+<td class="px-space-md py-space-xs text-right font-code-sm">0</td>
+<td class="px-space-md py-space-xs font-medium">Not Graduate</td>
+<td class="px-space-md py-space-xs text-on-surface-variant">Yes</td>
+<td class="px-space-md py-space-xs text-right font-code-sm font-medium">$4,100,000</td>
+<td class="px-space-md py-space-xs text-right font-code-sm font-medium text-primary">$12,200,000</td>
+<td class="px-space-md py-space-xs text-right font-code-sm">8 yrs</td>
+<td class="px-space-md py-space-xs text-right font-code-sm font-bold text-error">417</td>
+<td class="px-space-md py-space-xs text-right font-code-sm text-on-surface-variant">$2,700,000</td>
+<td class="px-space-md py-space-xs text-right font-code-sm text-on-surface-variant">$0</td>
+<td class="px-space-md py-space-xs text-right font-code-sm text-on-surface-variant">$8,800,000</td>
+<td class="px-space-md py-space-xs text-right font-code-sm text-on-surface-variant">$3,300,000</td>
+<td class="px-space-md py-space-xs text-center">
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                  Rejected
+                </span>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/70 transition-colors h-12">
+<td class="px-space-md py-space-xs font-code-sm text-code-sm font-semibold text-primary">3</td>
+<td class="px-space-md py-space-xs text-right font-code-sm">1</td>
+<td class="px-space-md py-space-xs font-medium">Graduate</td>
+<td class="px-space-md py-space-xs text-on-surface-variant">No</td>
+<td class="px-space-md py-space-xs text-right font-code-sm font-medium">$7,100,000</td>
+<td class="px-space-md py-space-xs text-right font-code-sm font-medium text-primary">$19,200,000</td>
+<td class="px-space-md py-space-xs text-right font-code-sm">10 yrs</td>
+<td class="px-space-md py-space-xs text-right font-code-sm font-bold text-secondary">664</td>
+<td class="px-space-md py-space-xs text-right font-code-sm text-on-surface-variant">$7,100,000</td>
+<td class="px-space-md py-space-xs text-right font-code-sm text-on-surface-variant">$4,500,000</td>
+<td class="px-space-md py-space-xs text-right font-code-sm text-on-surface-variant">$24,200,000</td>
+<td class="px-space-md py-space-xs text-right font-code-sm text-on-surface-variant">$6,200,000</td>
+<td class="px-space-md py-space-xs text-center">
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-tertiary-fixed-dim/30 text-on-tertiary-container font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-container"></span>
+                  Approved
+                </span>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low/70 transition-colors h-12">
+<td class="px-space-md py-space-xs font-code-sm text-code-sm font-semibold text-primary">4</td>
+<td class="px-space-md py-space-xs text-right font-code-sm">3</td>
+<td class="px-space-md py-space-xs font-medium">Graduate</td>
+<td class="px-space-md py-space-xs text-on-surface-variant">No</td>
+<td class="px-space-md py-space-xs text-right font-code-sm font-medium">$8,200,000</td>
+<td class="px-space-md py-space-xs text-right font-code-sm font-medium text-primary">$26,000,000</td>
+<td class="px-space-md py-space-xs text-right font-code-sm">20 yrs</td>
+<td class="px-space-md py-space-xs text-right font-code-sm font-bold text-error">580</td>
+<td class="px-space-md py-space-xs text-right font-code-sm text-on-surface-variant">$1,200,000</td>
+<td class="px-space-md py-space-xs text-right font-code-sm text-on-surface-variant">$2,100,000</td>
+<td class="px-space-md py-space-xs text-right font-code-sm text-on-surface-variant">$16,400,000</td>
+<td class="px-space-md py-space-xs text-right font-code-sm text-on-surface-variant">$7,500,000</td>
+<td class="px-space-md py-space-xs text-center">
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                  Rejected
+                </span>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-surface-container-low/70 transition-colors h-12">
+<td class="px-space-md py-space-xs font-code-sm text-code-sm font-semibold text-primary">5</td>
+<td class="px-space-md py-space-xs text-right font-code-sm">5</td>
+<td class="px-space-md py-space-xs font-medium">Not Graduate</td>
+<td class="px-space-md py-space-xs text-on-surface-variant">Yes</td>
+<td class="px-space-md py-space-xs text-right font-code-sm font-medium">$9,800,000</td>
+<td class="px-space-md py-space-xs text-right font-code-sm font-medium text-primary">$24,200,000</td>
+<td class="px-space-md py-space-xs text-right font-code-sm">10 yrs</td>
+<td class="px-space-md py-space-xs text-right font-code-sm font-bold text-on-tertiary-container">882</td>
+<td class="px-space-md py-space-xs text-right font-code-sm text-on-surface-variant">$16,200,000</td>
+<td class="px-space-md py-space-xs text-right font-code-sm text-on-surface-variant">$8,900,000</td>
+<td class="px-space-md py-space-xs text-right font-code-sm text-on-surface-variant">$31,100,000</td>
+<td class="px-space-md py-space-xs text-right font-code-sm text-on-surface-variant">$13,100,000</td>
+<td class="px-space-md py-space-xs text-center">
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-tertiary-fixed-dim/30 text-on-tertiary-container font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-container"></span>
+                  Approved
+                </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination Footer -->
+<div class="p-space-md bg-surface-container-low/50 flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<span class="font-body-sm text-body-sm text-on-surface-variant">
+          Showing <span class="font-semibold text-primary">1 to 5</span> of <span class="font-semibold text-primary">4,269</span> entries • Page 1 of 854
+        </span>
+<div class="flex items-center gap-space-xs">
+<button class="w-8 h-8 rounded-lg bg-surface-container text-on-surface-variant flex items-center justify-center hover:bg-surface-container-high transition-colors disabled:opacity-40" disabled="" type="button">
+<span class="material-symbols-outlined text-[18px]">keyboard_double_arrow_left</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container text-on-surface-variant flex items-center justify-center hover:bg-surface-container-high transition-colors disabled:opacity-40" disabled="" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md flex items-center justify-center shadow-sm" type="button">1</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md flex items-center justify-center hover:bg-surface-container-high transition-colors" type="button">2</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md flex items-center justify-center hover:bg-surface-container-high transition-colors" type="button">3</button>
+<span class="text-on-surface-variant px-1 font-body-sm">...</span>
+<button class="w-8 h-8 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md flex items-center justify-center hover:bg-surface-container-high transition-colors" type="button">854</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container text-on-surface-variant flex items-center justify-center hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container text-on-surface-variant flex items-center justify-center hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">keyboard_double_arrow_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div></main></div></body></html>
