@@ -3,7 +3,13 @@
 Run:  python app.py        then open http://localhost:5000
 First: register an account, then go to Dataset Management and upload
 your loan CSV manually. Models are trained ONLY when you click
-"Process Dataset & Train Models" - nothing is bundled or auto-trained.
+"Process Dataset & Train Models" - nothing is bundled or auto-trained
+on a LOCAL run.
+
+One exception, on Render only: see seed.py. Render's free disk wipes
+the database on every restart, so on Render (and only there) the app
+auto-restores the bundled demo dataset + demo account at startup when
+the database is empty. Local runs are unaffected.
 """
 import os
 
@@ -24,6 +30,12 @@ def create_app(config_class=Config):
     db.init_app(app)
     with app.app_context():
         db.create_all()
+    # Render-only auto-seed (see seed.py): after a free-tier wipe the
+    # database is empty, so restore the demo dataset + demo account.
+    # Local runs skip this - they stay manual-upload-only.
+    from seed import seed_demo_if_needed
+
+    seed_demo_if_needed(app)
 
     from routes.auth import auth_bp
     from routes.dashboard import dashboard_bp

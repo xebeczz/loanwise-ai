@@ -26,9 +26,10 @@ git push -u origin main
 ```
 
 What gets pushed: the Flask app, templates, tests and `stitch-reference/`
-(the Stitch design source). What does **not** get pushed (see `.gitignore`):
-`.venv/`, `__pycache__/`, `*.db`, uploaded CSVs, trained `.joblib` models,
-charts and PDFs. The live site starts empty — no dataset, no models.
+(the Stitch design source), plus `data/demo_dataset.csv` and `seed.py`
+(the Render-only auto-seed — see below). What does **not** get pushed
+(see `.gitignore`): `.venv/`, `__pycache__/`, `*.db`, uploaded CSVs,
+trained `.joblib` models, charts and PDFs.
 
 ## 3. Create the Render service (browser)
 
@@ -46,24 +47,36 @@ charts and PDFs. The live site starts empty — no dataset, no models.
 
 ## 4. First use on the live site
 
-The live site starts empty, exactly like a fresh local run:
+Since the 2026-11-14 auto-seed fix, the live site restores itself:
+on startup, if the database is empty, it loads the bundled demo
+dataset and trains the 5 models, and creates the demo account. Just
+log in — no upload or training needed on the live link:
 
-1. Open the Render URL and click **Create an account** — register fresh.
-2. Open **Dataset Management** → Browse CSV → select
-   `loan_approval_dataset.csv` (4,269 rows) → **Upload**.
-3. Inspect the summary cards and preview.
-4. Click **Process Dataset & Train Models** and wait for training.
-5. Open **Model Performance**, then **New Prediction**.
+- Email: `retrain@loanwise.ai`
+- Password: `Retrain1234!`
 
-## ⚠️ Important — Render free disk is ephemeral
+You can still register your own account — the trained models are
+shared — and you can still upload a different CSV and train it
+manually from Dataset Management (tick the replacement box).
+
+## ⚠️ Important — Render free disk is ephemeral (auto-seed covers it)
 
 Render's free plan has **no persistent disk**. The SQLite database
 (`loanwise.db`), uploaded CSVs, trained models and charts live on the
 service's temporary disk, so **every redeploy / restart wipes them** —
-same as Smart Attendance. After any redeploy you must:
+same as Smart Attendance. That wiped this demo twice before the fix.
 
-- Register a fresh account on the live site, then
-- Re-upload the CSV and click **Process Dataset & Train Models** again.
+`seed.py` covers it: on Render only, at startup, with an empty
+database, it re-creates the demo from `data/demo_dataset.csv`
+(4,269 rows) using the exact same training code as the manual
+"Process Dataset & Train Models" button, and re-creates the demo
+account. First boot after a wipe takes ~20 s longer for training;
+after that the live link works again by itself. It never runs locally
+(local runs stay empty + manual-upload-only) and never touches a
+database that already has a dataset in it. Set
+`LOANWISE_AUTO_SEED=0` to switch it off.
 
 Your code and the Stitch design are safe in GitHub; only the live
-data resets. Do not treat the live site as permanent storage.
+data resets, and now it restores itself. Do not treat the live site
+as permanent storage — your own accounts and predictions can still
+be wiped by a restart, even though the demo dataset comes back.

@@ -94,10 +94,18 @@ Ready for a free Render deploy — see [DEPLOY_RENDER.md](DEPLOY_RENDER.md)
 for the exact steps (create repo `xebeczz/loanwise-ai` in the browser,
 push, then New Web Service in Render — `render.yaml` does the rest).
 
-⚠️ **Render free disk is ephemeral:** every redeploy / restart wipes
-the SQLite database, uploaded CSVs and trained models, same as Smart
-Attendance. After a redeploy, register fresh on the live site and
-re-upload the CSV + click **Process Dataset & Train Models** again.
+⚠️ **Render free disk is ephemeral — auto-seed fixes it:** every
+redeploy / restart wipes the SQLite database, uploaded CSVs and
+trained models, same as Smart Attendance. That wiped the live demo
+twice (2026-11-13, 2026-11-14). Since the 2026-11-14 fix, the app
+auto-restores itself on Render only (see `seed.py`): on startup, if
+the database is empty, it loads the bundled demo dataset
+(`data/demo_dataset.csv`, the same 4,269-row Kaggle file) and trains
+the 5 models, and creates the demo account
+`retrain@loanwise.ai` / `Retrain1234!`. First boot after a wipe takes
+~20 s longer; after that the live link works again by itself. Local
+runs are unaffected — they still start empty and manual-upload-only.
+Set `LOANWISE_AUTO_SEED=0` to switch the auto-seed off.
 The free service also spins down when idle, so the first load after
 a pause is slow (~30 s).
 
